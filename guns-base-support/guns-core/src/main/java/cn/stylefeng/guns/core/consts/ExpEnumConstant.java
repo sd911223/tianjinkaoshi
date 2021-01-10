@@ -86,4 +86,7 @@ public interface ExpEnumConstant {
      */
     int WRAPPER_EXCEPTION_ENUM = 1800;
 
+
+    int GUNS_MAIN_MODULE_EXP_CODE = 1900;
+
 }
