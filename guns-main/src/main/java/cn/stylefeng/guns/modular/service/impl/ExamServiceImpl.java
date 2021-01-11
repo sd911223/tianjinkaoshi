@@ -2,20 +2,22 @@ package cn.stylefeng.guns.modular.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
+import cn.stylefeng.guns.core.enums.CommonStatusEnum;
 import cn.stylefeng.guns.core.exception.ServiceException;
 import cn.stylefeng.guns.core.factory.PageFactory;
 import cn.stylefeng.guns.core.pojo.page.PageResult;
 import cn.stylefeng.guns.modular.entity.Exam;
 import cn.stylefeng.guns.modular.enums.ExamExceptionEnum;
+import cn.stylefeng.guns.modular.enums.ExamStatusEnum;
 import cn.stylefeng.guns.modular.mapper.ExamMapper;
 import cn.stylefeng.guns.modular.model.param.ExamParam;
 import cn.stylefeng.guns.modular.service.ExamService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -26,13 +28,15 @@ import java.util.List;
  */
 @Service
 public class ExamServiceImpl extends ServiceImpl<ExamMapper, Exam> implements ExamService {
+    @Resource
+    ExamMapper examMapper;
 
     @Override
     public PageResult<Exam> page(ExamParam examParam) {
 
         // 构造条件
         LambdaQueryWrapper<Exam> queryWrapper = new LambdaQueryWrapper<>();
-
+        queryWrapper.eq(Exam::getDelFlag, CommonStatusEnum.ENABLE.getCode());
         // 查询分页结果
         return new PageResult<>(this.page(PageFactory.defaultPage(), queryWrapper));
     }
@@ -48,11 +52,10 @@ public class ExamServiceImpl extends ServiceImpl<ExamMapper, Exam> implements Ex
 
     @Override
     public void add(ExamParam examParam) {
-
         // 将dto转为实体
         Exam exam = new Exam();
         BeanUtil.copyProperties(examParam, exam);
-
+        exam.setExamStatus(ExamStatusEnum.NOT_SET.getCode());
         this.save(exam);
     }
 
@@ -60,7 +63,7 @@ public class ExamServiceImpl extends ServiceImpl<ExamMapper, Exam> implements Ex
     @Transactional(rollbackFor = Exception.class)
     public void delete(Integer[] id) {
 
-//        examMapper.deleteExamByIds(id);
+        examMapper.deleteExamByIds(id);
     }
 
     @Override
@@ -78,6 +81,11 @@ public class ExamServiceImpl extends ServiceImpl<ExamMapper, Exam> implements Ex
     @Override
     public Exam detail(ExamParam examParam) {
         return this.queryTjExam(examParam);
+    }
+
+    @Override
+    public void revoke(Integer[] id) {
+        examMapper.updateExamStatusByIds(id);
     }
 
 

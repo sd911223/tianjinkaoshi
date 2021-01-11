@@ -7,6 +7,7 @@ import cn.stylefeng.guns.core.pojo.page.PageResult;
 import cn.stylefeng.guns.core.pojo.response.ResponseData;
 import cn.stylefeng.guns.core.pojo.response.SuccessResponseData;
 import cn.stylefeng.guns.modular.entity.Exam;
+import cn.stylefeng.guns.modular.enums.ExamStatusEnum;
 import cn.stylefeng.guns.modular.model.param.ExamParam;
 import cn.stylefeng.guns.modular.service.ExamService;
 import cn.stylefeng.guns.sys.modular.dict.entity.SysDictData;
@@ -48,20 +49,7 @@ public class ExamController {
         ExamParam examParam = new ExamParam();
         PageResult<Exam> page = examService.page(examParam);
         List<Exam> list = page.getRows();
-        if (!list.isEmpty()) {
-            list.stream().filter(a -> a.getExamType() != null).forEach(e -> {
-                SysDictDataParam sysDictDataParam = new SysDictDataParam();
-                sysDictDataParam.setId(Long.valueOf(e.getExamType()));
-                SysDictData dictData = sysDictDataService.detail(sysDictDataParam);
-                e.setExamType(dictData.getValue());
-            });
-            list.stream().filter(a -> a.getExamStatus() != null).forEach(e -> {
-                SysDictDataParam sysDictDataParam = new SysDictDataParam();
-                sysDictDataParam.setId(Long.valueOf(e.getExamStatus()));
-                SysDictData dictData = sysDictDataService.detail(sysDictDataParam);
-                e.setExamStatus(dictData.getValue());
-            });
-        }
+        getListExam(list);
         return new SuccessResponseData(page);
     }
 
@@ -75,7 +63,9 @@ public class ExamController {
     @GetMapping("/exam/list")
     @BusinessLog(title = "tj_exam_查询所有", opType = LogAnnotionOpTypeEnum.QUERY)
     public ResponseData list(ExamParam examParam) {
-        return new SuccessResponseData(examService.list(examParam));
+        List<Exam> list = examService.list(examParam);
+        getListExam(list);
+        return new SuccessResponseData();
     }
 
     /**
@@ -88,7 +78,13 @@ public class ExamController {
     @GetMapping("/exam/detail")
     @BusinessLog(title = "tj_exam_查看详情", opType = LogAnnotionOpTypeEnum.DETAIL)
     public ResponseData detail(@Validated(ExamParam.detail.class) ExamParam examParam) {
-        return new SuccessResponseData(examService.detail(examParam));
+        Exam detail = examService.detail(examParam);
+        SysDictDataParam sysDictDataParam = new SysDictDataParam();
+        sysDictDataParam.setId(Long.valueOf(detail.getExamType()));
+        SysDictData dictData = sysDictDataService.detail(sysDictDataParam);
+        detail.setExamType(dictData.getValue());
+        detail.setExamStatus(ExamStatusEnum.valueOf(detail.getExamStatus()).getMessage());
+        return new SuccessResponseData(detail);
     }
 
     /**
@@ -120,6 +116,20 @@ public class ExamController {
     }
 
     /**
+     * 撤销发布
+     *
+     * @author shiTou
+     * @date 2021/01/10 19:37
+     */
+    @ApiOperation("撤销发布")
+    @GetMapping("/exam/revoke/{id}")
+    @BusinessLog(title = "tj_exam_撤销发布", opType = LogAnnotionOpTypeEnum.DELETE)
+    public ResponseData revoke(@PathVariable("id") Integer[] id) {
+        examService.revoke(id);
+        return new SuccessResponseData();
+    }
+
+    /**
      * 编辑tj_exam
      *
      * @author shiTou
@@ -133,5 +143,18 @@ public class ExamController {
         return new SuccessResponseData();
     }
 
+    private void getListExam(List<Exam> list) {
+        if (!list.isEmpty()) {
+            list.stream().filter(a -> a.getExamType() != null).forEach(e -> {
+                SysDictDataParam sysDictDataParam = new SysDictDataParam();
+                sysDictDataParam.setId(Long.valueOf(e.getExamType()));
+                SysDictData dictData = sysDictDataService.detail(sysDictDataParam);
+                e.setExamType(dictData.getValue());
+            });
+            list.stream().filter(a -> a.getExamStatus() != null).forEach(e -> {
+                e.setExamStatus(ExamStatusEnum.valueOf(e.getExamStatus()).getMessage());
+            });
+        }
+    }
 
 }

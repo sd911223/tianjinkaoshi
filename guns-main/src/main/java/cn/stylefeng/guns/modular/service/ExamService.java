@@ -63,4 +63,10 @@ public interface ExamService extends IService<Exam> {
      */
     Exam detail(ExamParam examParam);
 
+    /**
+     * 撤销发布
+     *
+     * @param id
+     */
+    void revoke(Integer[] id);
 }
