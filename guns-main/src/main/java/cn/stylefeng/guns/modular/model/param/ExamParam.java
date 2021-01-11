@@ -21,7 +21,7 @@ public class ExamParam extends BaseParam {
      * 主键ID
      */
     @NotNull(message = "主键ID不能为空", groups = {edit.class})
-    private Integer id;
+    private Long id;
 
     /**
      * 考试名称

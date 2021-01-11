@@ -4,6 +4,7 @@ import cn.stylefeng.guns.core.pojo.page.PageResult;
 import cn.stylefeng.guns.modular.score.entity.Score;
 import cn.stylefeng.guns.modular.score.model.param.ScoreParam;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
@@ -45,7 +46,7 @@ public interface ScoreService extends IService<Score> {
      * @author shiTou
      * @date 2021/01/11 17:27
      */
-    void delete(ScoreParam scoreParam);
+    void delete(Long[] id);
 
     /**
      * 编辑考试成绩
@@ -64,4 +65,6 @@ public interface ScoreService extends IService<Score> {
     Score detail(ScoreParam scoreParam);
 
     void export(Integer[] id);
+
+    void importExcel(MultipartFile file);
 }

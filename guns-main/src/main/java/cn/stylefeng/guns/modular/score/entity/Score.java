@@ -2,9 +2,9 @@ package cn.stylefeng.guns.modular.score.entity;
 
 import cn.afterturn.easypoi.excel.annotation.Excel;
 import cn.stylefeng.guns.core.pojo.base.entity.BaseEntity;
-import com.baomidou.mybatisplus.annotation.*;
-
-import java.util.Date;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -23,7 +23,7 @@ public class Score extends BaseEntity {
      * 主键ID
      */
     @TableId("id")
-    private Integer id;
+    private Long id;
 
     /**
      * 身份证号

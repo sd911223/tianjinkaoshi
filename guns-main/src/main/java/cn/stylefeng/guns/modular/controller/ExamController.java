@@ -110,7 +110,7 @@ public class ExamController {
     @ApiOperation("删除考试")
     @DeleteMapping("/exam/delete/{id}")
     @BusinessLog(title = "tj_exam_删除", opType = LogAnnotionOpTypeEnum.DELETE)
-    public ResponseData delete(@PathVariable("id") Integer[] id) {
+    public ResponseData delete(@PathVariable("id") Long[] id) {
         examService.delete(id);
         return new SuccessResponseData();
     }
@@ -124,7 +124,7 @@ public class ExamController {
     @ApiOperation("撤销发布")
     @GetMapping("/exam/revoke/{id}")
     @BusinessLog(title = "tj_exam_撤销发布", opType = LogAnnotionOpTypeEnum.DELETE)
-    public ResponseData revoke(@PathVariable("id") Integer[] id) {
+    public ResponseData revoke(@PathVariable("id") Long[] id) {
         examService.revoke(id);
         return new SuccessResponseData();
     }

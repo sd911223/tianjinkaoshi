@@ -16,7 +16,7 @@ public class ExamResult implements Serializable {
     /**
      * 主键ID
      */
-    private Integer id;
+    private Long id;
 
     /**
      * 考试名称

@@ -16,8 +16,11 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.Resource;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -28,6 +31,8 @@ import java.util.List;
  */
 @Service
 public class ScoreServiceImpl extends ServiceImpl<ScoreMapper, Score> implements ScoreService {
+    @Resource
+    ScoreMapper scoreMapper;
 
     @Override
     public PageResult<Score> page(ScoreParam scoreParam) {
@@ -61,8 +66,8 @@ public class ScoreServiceImpl extends ServiceImpl<ScoreMapper, Score> implements
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void delete(ScoreParam scoreParam) {
-        this.removeById(scoreParam.getId());
+    public void delete(Long[] id) {
+        scoreMapper.deleteScoreByIds(id);
     }
 
     @Override
@@ -94,6 +99,18 @@ public class ScoreServiceImpl extends ServiceImpl<ScoreMapper, Score> implements
             PoiUtil.exportExcelWithStream("Score.xls", Score.class, scoreList);
         }
 
+    }
+
+    @Override
+    public void importExcel(MultipartFile file) {
+        List<Score> list = PoiUtil.importExcel(file, 0, 1, Score.class);
+        if (!list.isEmpty()) {
+            list.forEach(e -> {
+                e.setCreateTime(new Date());
+                e.setId(null);
+                this.save(e);
+            });
+        }
     }
 
 

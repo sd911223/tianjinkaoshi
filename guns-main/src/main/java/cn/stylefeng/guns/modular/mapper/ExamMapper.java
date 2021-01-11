@@ -11,7 +11,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface ExamMapper extends BaseMapper<Exam> {
 
-    int deleteExamByIds(Integer[] id);
+    int deleteExamByIds(Long[] id);
 
-    int updateExamStatusByIds(Integer[] id);
+    int updateExamStatusByIds(Long[] id);
 }

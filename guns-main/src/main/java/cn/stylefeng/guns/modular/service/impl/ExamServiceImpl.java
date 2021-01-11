@@ -61,7 +61,7 @@ public class ExamServiceImpl extends ServiceImpl<ExamMapper, Exam> implements Ex
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void delete(Integer[] id) {
+    public void delete(Long[] id) {
 
         examMapper.deleteExamByIds(id);
     }
@@ -84,7 +84,7 @@ public class ExamServiceImpl extends ServiceImpl<ExamMapper, Exam> implements Ex
     }
 
     @Override
-    public void revoke(Integer[] id) {
+    public void revoke(Long[] id) {
         examMapper.updateExamStatusByIds(id);
     }
 

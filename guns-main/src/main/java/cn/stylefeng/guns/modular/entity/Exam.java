@@ -21,7 +21,7 @@ public class Exam {
      * 主键ID
      */
     @TableId("id")
-    private Integer id;
+    private Long id;
 
     /**
      * 考试名称

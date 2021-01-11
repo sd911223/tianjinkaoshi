@@ -45,7 +45,7 @@ public interface ExamService extends IService<Exam> {
      * @author shiTou
      * @date 2021/01/10 19:37
      */
-    void delete(Integer[] id);
+    void delete(Long[] id);
 
     /**
      * 编辑tj_exam
@@ -68,5 +68,5 @@ public interface ExamService extends IService<Exam> {
      *
      * @param id
      */
-    void revoke(Integer[] id);
+    void revoke(Long[] id);
 }

@@ -13,6 +13,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
@@ -61,6 +62,22 @@ public class ScoreController {
         scoreService.export(id);
     }
 
+
+    /**
+     * 导入考试成绩
+     *
+     * @author shiTou
+     * @date 2021/01/11 17:27
+     */
+    @ApiOperation("导入考试成绩")
+    @Permission
+    @PostMapping("/score/import")
+    @BusinessLog(title = "考试成绩_导入", opType = LogAnnotionOpTypeEnum.IMPORT)
+    public void importExcel(@RequestParam("file") MultipartFile file) {
+
+        scoreService.importExcel(file);
+    }
+
     /**
      * 下载文件
      *
@@ -75,6 +92,7 @@ public class ScoreController {
         sysFileInfoParam.setId(1348595505906503681L);
         sysFileInfoService.download(sysFileInfoParam, response);
     }
+
 
     /**
      * 获取全部考试成绩
@@ -119,10 +137,11 @@ public class ScoreController {
      * @author shiTou
      * @date 2021/01/11 17:27
      */
-    @PostMapping("/score/delete")
+    @ApiOperation("删除考试成绩")
+    @DeleteMapping("/score/delete/{id}")
     @BusinessLog(title = "考试成绩_删除", opType = LogAnnotionOpTypeEnum.DELETE)
-    public ResponseData delete(@RequestBody @Validated(ScoreParam.delete.class) ScoreParam scoreParam) {
-        scoreService.delete(scoreParam);
+    public ResponseData delete(@PathVariable("id") Long[] id) {
+        scoreService.delete(id);
         return new SuccessResponseData();
     }
 
