@@ -7,13 +7,15 @@ import cn.stylefeng.guns.core.pojo.response.ResponseData;
 import cn.stylefeng.guns.core.pojo.response.SuccessResponseData;
 import cn.stylefeng.guns.modular.score.model.param.ScoreParam;
 import cn.stylefeng.guns.modular.score.service.ScoreService;
-import cn.stylefeng.guns.sys.modular.user.param.SysUserParam;
+import cn.stylefeng.guns.sys.modular.file.param.SysFileInfoParam;
+import cn.stylefeng.guns.sys.modular.file.service.SysFileInfoService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * 考试成绩 控制器
@@ -27,6 +29,8 @@ public class ScoreController {
 
     @Resource
     private ScoreService scoreService;
+    @Resource
+    private SysFileInfoService sysFileInfoService;
 
     /**
      * 分页查询考试成绩
@@ -52,9 +56,24 @@ public class ScoreController {
     @ApiOperation("导出考试成绩")
     @Permission
     @GetMapping("/score/export/{id}")
-    @BusinessLog(title = "系统用户_导出", opType = LogAnnotionOpTypeEnum.EXPORT)
-    public void export(@PathVariable(value = "id",required = false) Integer[] id) {
+    @BusinessLog(title = "考试成绩_导出", opType = LogAnnotionOpTypeEnum.EXPORT)
+    public void export(@PathVariable(value = "id", required = false) Integer[] id) {
         scoreService.export(id);
+    }
+
+    /**
+     * 下载文件
+     *
+     * @author stylefeng, xuyuxiang
+     * @date 2020/6/9 21:53
+     */
+    @ApiOperation("导入模板下载")
+    @GetMapping("/score/download")
+    @BusinessLog(title = "文件信息表_下载文件", opType = LogAnnotionOpTypeEnum.OTHER)
+    public void download(HttpServletResponse response) {
+        SysFileInfoParam sysFileInfoParam = new SysFileInfoParam();
+        sysFileInfoParam.setId(1348595505906503681L);
+        sysFileInfoService.download(sysFileInfoParam, response);
     }
 
     /**

@@ -31,6 +31,8 @@ import cn.stylefeng.guns.core.pojo.response.ResponseData;
 import cn.stylefeng.guns.core.pojo.response.SuccessResponseData;
 import cn.stylefeng.guns.sys.modular.file.param.SysFileInfoParam;
 import cn.stylefeng.guns.sys.modular.file.service.SysFileInfoService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -45,6 +47,7 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2020/6/7 22:15
  */
 @RestController
+@Api(tags = "文件信息表")
 public class SysFileInfoController {
 
     @Resource
@@ -56,6 +59,7 @@ public class SysFileInfoController {
      * @author stylefeng
      * @date 2020/6/7 22:15
      */
+    @ApiOperation("上传")
     @PostMapping("/sysFileInfo/upload")
     @BusinessLog(title = "文件信息表_上传文件", opType = LogAnnotionOpTypeEnum.OTHER)
     public ResponseData upload(@RequestPart("file") MultipartFile file) {
@@ -69,6 +73,7 @@ public class SysFileInfoController {
      * @author stylefeng, xuyuxiang
      * @date 2020/6/9 21:53
      */
+    @ApiOperation("下载")
     @GetMapping("/sysFileInfo/download")
     @BusinessLog(title = "文件信息表_下载文件", opType = LogAnnotionOpTypeEnum.OTHER)
     public void download(@Validated(SysFileInfoParam.detail.class) SysFileInfoParam sysFileInfoParam, HttpServletResponse response) {
