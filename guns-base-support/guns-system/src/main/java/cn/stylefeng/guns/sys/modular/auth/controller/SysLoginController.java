@@ -30,6 +30,8 @@ import cn.stylefeng.guns.core.context.login.LoginContextHolder;
 import cn.stylefeng.guns.core.pojo.response.ResponseData;
 import cn.stylefeng.guns.core.pojo.response.SuccessResponseData;
 import cn.stylefeng.guns.sys.modular.auth.service.AuthService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,6 +46,7 @@ import javax.annotation.Resource;
  * @date 2020/3/11 12:20
  */
 @RestController
+@Api(tags = "登陆")
 public class SysLoginController {
 
     @Resource
@@ -55,6 +58,7 @@ public class SysLoginController {
      * @author xuyuxiang
      * @date 2020/3/11 15:52
      */
+    @ApiOperation("登陆")
     @PostMapping("/login")
     public ResponseData login(@RequestBody Dict dict) {
         String account = dict.getStr("account");
