@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletResponse;
  * @date: 2021/01/11 17:27
  */
 @RestController
-@Api(tags = "考试成绩管理")
+@Api(tags = "高级-考试成绩管理")
 public class ScoreController {
 
     @Resource
