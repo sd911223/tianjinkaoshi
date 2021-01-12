@@ -1,9 +1,10 @@
 package cn.stylefeng.guns.modular.scscore.entity;
 
+import cn.afterturn.easypoi.excel.annotation.Excel;
 import cn.stylefeng.guns.core.pojo.base.entity.BaseEntity;
-import com.baomidou.mybatisplus.annotation.*;
-
-import java.util.Date;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -27,6 +28,7 @@ public class ScScore extends BaseEntity {
     /**
      * 身份证号
      */
+    @Excel(name = "身份证号")
     @TableField("id_card")
     private String idCard;
 
@@ -34,6 +36,11 @@ public class ScScore extends BaseEntity {
      * 考试结果
      */
     @TableField("exam_result")
+    @Excel(name = "考试结果")
     private String examResult;
-
+    /**
+     * 类型(SKILL_ADMISSION:技能准考证信息管理   SKILL_ADMISSION:综合笔试准考证信息管理)
+     */
+    @TableField("exam_result")
+    private String examType;
 }

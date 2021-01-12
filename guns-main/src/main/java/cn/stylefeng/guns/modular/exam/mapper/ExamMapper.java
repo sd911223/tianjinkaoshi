@@ -1,13 +1,13 @@
-package cn.stylefeng.guns.modular.mapper;
+package cn.stylefeng.guns.modular.exam.mapper;
 
-import cn.stylefeng.guns.modular.entity.Exam;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import cn.stylefeng.guns.modular.exam.entity.Exam;
 
 /**
- * tj_exam Mapper 接口
+ * 考试管理 Mapper 接口
  *
- * @author shiTou
- * @date 2021/01/10 19:37
+ * @author ShiTou
+ * @date 2021/01/13 01:35
  */
 public interface ExamMapper extends BaseMapper<Exam> {
 

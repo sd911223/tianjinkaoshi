@@ -1,17 +1,17 @@
-package cn.stylefeng.guns.modular.service;
+package cn.stylefeng.guns.modular.exam.service;
 
 import cn.stylefeng.guns.core.pojo.page.PageResult;
-import cn.stylefeng.guns.modular.entity.Exam;
-import cn.stylefeng.guns.modular.model.param.ExamParam;
+import cn.stylefeng.guns.modular.exam.entity.Exam;
+import cn.stylefeng.guns.modular.exam.model.param.ExamParam;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.util.List;
 
 /**
- * 考试 服务类
+ * 考试管理 服务类
  *
- * @author shiTou
- * @date 2021/01/10 19:37
+ * @author ShiTou
+ * @date 2021/01/13 01:35
  */
 public interface ExamService extends IService<Exam> {
 
@@ -69,4 +69,5 @@ public interface ExamService extends IService<Exam> {
      * @param id
      */
     void revoke(Long[] id);
+
 }

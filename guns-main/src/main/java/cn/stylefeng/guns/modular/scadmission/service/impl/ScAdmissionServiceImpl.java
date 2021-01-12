@@ -8,6 +8,7 @@ import cn.stylefeng.guns.core.pojo.page.PageResult;
 import cn.stylefeng.guns.core.util.PoiUtil;
 import cn.stylefeng.guns.modular.scadmission.entity.ScAdmission;
 import cn.stylefeng.guns.modular.scadmission.enums.ScAdmissionExceptionEnum;
+import cn.stylefeng.guns.modular.scadmission.enums.ScAdmissionTypeEnum;
 import cn.stylefeng.guns.modular.scadmission.mapper.ScAdmissionMapper;
 import cn.stylefeng.guns.modular.scadmission.model.param.ScAdmissionParam;
 import cn.stylefeng.guns.modular.scadmission.service.ScAdmissionService;
@@ -35,7 +36,8 @@ public class ScAdmissionServiceImpl extends ServiceImpl<ScAdmissionMapper, ScAdm
 
         // 构造条件
         LambdaQueryWrapper<ScAdmission> queryWrapper = new LambdaQueryWrapper<>();
-
+        //查询类型
+        queryWrapper.eq(ScAdmission::getExamType, scAdmissionParam.getExamType());
         // 查询分页结果
         return new PageResult<>(this.page(PageFactory.defaultPage(), queryWrapper));
     }
@@ -45,7 +47,8 @@ public class ScAdmissionServiceImpl extends ServiceImpl<ScAdmissionMapper, ScAdm
 
         // 构造条件
         LambdaQueryWrapper<ScAdmission> queryWrapper = new LambdaQueryWrapper<>();
-
+        //查询类型
+        queryWrapper.eq(ScAdmission::getExamType, scAdmissionParam.getExamType());
         return this.list(queryWrapper);
     }
 
@@ -83,23 +86,25 @@ public class ScAdmissionServiceImpl extends ServiceImpl<ScAdmissionMapper, ScAdm
     }
 
     @Override
-    public void export(Integer[] id) {
+    public void export(Integer[] id, ScAdmissionTypeEnum scAdmissionTypeEnum) {
         if (id == null) {
             ScAdmissionParam scoreParam = new ScAdmissionParam();
+            scoreParam.setExamType(scAdmissionTypeEnum.getCode());
             List<ScAdmission> list = this.list(scoreParam);
-            PoiUtil.exportExcelWithStream("JcScore.xls", ScAdmission.class, list);
+            PoiUtil.exportExcelWithStream("ScAdmissionAndSkill.xls", ScAdmission.class, list);
         } else {
             List<Integer> list = Arrays.asList(id);
             List<ScAdmission> scoreList = this.listByIds(list);
-            PoiUtil.exportExcelWithStream("JcScore.xls", ScAdmission.class, scoreList);
+            PoiUtil.exportExcelWithStream("ScAdmissionAndSkill.xls", ScAdmission.class, scoreList);
         }
     }
 
     @Override
-    public void importExcel(MultipartFile file) {
+    public void importExcel(MultipartFile file, ScAdmissionTypeEnum scAdmissionTypeEnum) {
         List<ScAdmission> list = PoiUtil.importExcel(file, 0, 1, ScAdmission.class);
         if (!list.isEmpty()) {
             list.forEach(e -> {
+                e.setExamType(scAdmissionTypeEnum.getCode());
                 e.setCreateTime(new Date());
                 this.save(e);
             });

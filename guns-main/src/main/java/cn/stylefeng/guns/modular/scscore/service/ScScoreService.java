@@ -1,6 +1,7 @@
 package cn.stylefeng.guns.modular.scscore.service;
 
 import cn.stylefeng.guns.core.pojo.page.PageResult;
+import cn.stylefeng.guns.modular.scadmission.enums.ScAdmissionTypeEnum;
 import cn.stylefeng.guns.modular.scscore.entity.ScScore;
 import cn.stylefeng.guns.modular.scscore.model.param.ScScoreParam;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -64,7 +65,7 @@ public interface ScScoreService extends IService<ScScore> {
      */
     ScScore detail(ScScoreParam scScoreParam);
 
-    void importExcel(MultipartFile file);
+    void importExcel(MultipartFile file, ScAdmissionTypeEnum scAdmissionTypeEnum);
 
-    void export(Integer[] id);
+    void export(Integer[] id,ScAdmissionTypeEnum scAdmissionTypeEnum);
 }

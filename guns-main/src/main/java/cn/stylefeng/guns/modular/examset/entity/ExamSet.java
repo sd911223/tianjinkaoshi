@@ -140,4 +140,14 @@ public class ExamSet extends BaseEntity {
      */
     @TableField("del_flag")
     private String delFlag;
+    /**
+     * 考试科目与费用
+     */
+    @TableField("subject_cost")
+    private String subjectCost;
+    /**
+     * 报名级别
+     */
+    @TableField("sign_level")
+    private String signLevel;
 }

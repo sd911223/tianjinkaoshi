@@ -6,6 +6,7 @@ import cn.stylefeng.guns.core.exception.ServiceException;
 import cn.stylefeng.guns.core.factory.PageFactory;
 import cn.stylefeng.guns.core.pojo.page.PageResult;
 import cn.stylefeng.guns.core.util.PoiUtil;
+import cn.stylefeng.guns.modular.scadmission.enums.ScAdmissionTypeEnum;
 import cn.stylefeng.guns.modular.scscore.entity.ScScore;
 import cn.stylefeng.guns.modular.scscore.enums.ScScoreExceptionEnum;
 import cn.stylefeng.guns.modular.scscore.mapper.ScScoreMapper;
@@ -35,7 +36,8 @@ public class ScScoreServiceImpl extends ServiceImpl<ScScoreMapper, ScScore> impl
 
         // 构造条件
         LambdaQueryWrapper<ScScore> queryWrapper = new LambdaQueryWrapper<>();
-
+        //查询类型
+        queryWrapper.eq(ScScore::getExamType, scScoreParam.getExamType());
         // 查询分页结果
         return new PageResult<>(this.page(PageFactory.defaultPage(), queryWrapper));
     }
@@ -45,7 +47,8 @@ public class ScScoreServiceImpl extends ServiceImpl<ScScoreMapper, ScScore> impl
 
         // 构造条件
         LambdaQueryWrapper<ScScore> queryWrapper = new LambdaQueryWrapper<>();
-
+        //查询类型
+        queryWrapper.eq(ScScore::getExamType, scScoreParam.getExamType());
         return this.list(queryWrapper);
     }
 
@@ -83,26 +86,28 @@ public class ScScoreServiceImpl extends ServiceImpl<ScScoreMapper, ScScore> impl
     }
 
     @Override
-    public void importExcel(MultipartFile file) {
+    public void importExcel(MultipartFile file, ScAdmissionTypeEnum scAdmissionTypeEnum) {
         List<ScScore> list = PoiUtil.importExcel(file, 0, 1, ScScore.class);
         if (!list.isEmpty()) {
             list.forEach(e -> {
                 e.setCreateTime(new Date());
+                e.setExamType(scAdmissionTypeEnum.getCode());
                 this.save(e);
             });
         }
     }
 
     @Override
-    public void export(Integer[] id) {
+    public void export(Integer[] id, ScAdmissionTypeEnum scAdmissionTypeEnum) {
         if (id == null) {
             ScScoreParam scoreParam = new ScScoreParam();
+            scoreParam.setExamType(scAdmissionTypeEnum.getCode());
             List<ScScore> list = this.list(scoreParam);
-            PoiUtil.exportExcelWithStream("ScScore.xls", ScScore.class, list);
+            PoiUtil.exportExcelWithStream("ScScoreAndWritten.xls", ScScore.class, list);
         } else {
             List<Integer> list = Arrays.asList(id);
             List<ScScore> scoreList = this.listByIds(list);
-            PoiUtil.exportExcelWithStream("ScScore.xls", ScScore.class, scoreList);
+            PoiUtil.exportExcelWithStream("ScScoreAndWritten.xls", ScScore.class, scoreList);
         }
     }
 

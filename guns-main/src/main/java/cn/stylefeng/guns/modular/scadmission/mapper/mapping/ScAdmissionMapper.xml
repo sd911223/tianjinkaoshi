@@ -3,21 +3,22 @@
 <mapper namespace="cn.stylefeng.guns.modular.scadmission.mapper.ScAdmissionMapper">
 
     <!-- 开启二级缓存 -->
-<!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+    <!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.scadmission.entity.ScAdmission">
-		<id column="id" property="id" />
-		<result column="id_card" property="idCard" />
-		<result column="apply_number" property="applyNumber" />
-		<result column="exam_time" property="examTime" />
-		<result column="sign_time" property="signTime" />
-		<result column="examination_address" property="examinationAddress" />
-		<result column="sign_address" property="signAddress" />
-		<result column="create_time" property="createTime" />
-		<result column="update_time" property="updateTime" />
-		<result column="create_user" property="createUser" />
-		<result column="update_user" property="updateUser" />
-	</resultMap>
+        <id column="id" property="id"/>
+        <result column="id_card" property="idCard"/>
+        <result column="apply_number" property="applyNumber"/>
+        <result column="exam_time" property="examTime"/>
+        <result column="sign_time" property="signTime"/>
+        <result column="examination_address" property="examinationAddress"/>
+        <result column="sign_address" property="signAddress"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="create_user" property="createUser"/>
+        <result column="update_user" property="updateUser"/>
+        <result column="exam_type" property="examType"/>
+    </resultMap>
 
 </mapper>

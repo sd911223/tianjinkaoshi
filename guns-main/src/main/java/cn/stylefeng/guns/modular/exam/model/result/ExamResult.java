@@ -1,14 +1,14 @@
-package cn.stylefeng.guns.modular.model.result;
+package cn.stylefeng.guns.modular.exam.model.result;
 
 import java.util.Date;
 import lombok.Data;
 import java.io.Serializable;
 
 /**
- * tj_exam
+ * 考试管理
  *
- * @author shiTou
- * @date 2021/01/10 19:37
+ * @author ShiTou
+ * @date 2021/01/13 01:35
  */
 @Data
 public class ExamResult implements Serializable {
@@ -29,12 +29,12 @@ public class ExamResult implements Serializable {
     private String examType;
 
     /**
-     * 考试状态(字典id)
+     * 考试状态
      */
     private String examStatus;
 
     /**
-     * 删除标志（0代表存在 1代表删除）
+     * 删除标志（0代表存在 2代表删除）
      */
     private String delFlag;
 
@@ -47,5 +47,15 @@ public class ExamResult implements Serializable {
      * 修改时间
      */
     private Date updateTime;
+
+    /**
+     * 创建人
+     */
+    private Long createUser;
+
+    /**
+     * 修改人
+     */
+    private Long updateUser;
 
 }

@@ -17,13 +17,13 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 
 /**
- * 考试设置 控制器
+ * 高级/基层 控制器
  *
  * @author: shiTou
  * @date: 2021/01/12 22:20
  */
 @RestController
-@Api(tags = "考试设置管理")
+@Api(tags = "高级/基层 考试设置管理")
 public class ExamSetController {
 
     @Resource
@@ -66,12 +66,12 @@ public class ExamSetController {
     }
 
     /**
-     * 添加考试设置
+     * 添加 高级/基层考试设置
      *
      * @author shiTou
      * @date 2021/01/12 22:20
      */
-    @ApiOperation("添加考试设置")
+    @ApiOperation("添加 高级/基层考试设置")
     @PostMapping("/examSet/add")
     @BusinessLog(title = "考试设置_增加", opType = LogAnnotionOpTypeEnum.ADD)
     public ResponseData add(@RequestBody @Validated(ExamSetParam.class) ExamSetParam examSetParam) {

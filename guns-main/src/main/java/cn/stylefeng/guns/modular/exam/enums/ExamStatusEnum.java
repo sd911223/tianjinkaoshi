@@ -22,21 +22,46 @@ Guns采用APACHE LICENSE 2.0开源协议，您在使用过程中，需要注意�
 5.在修改包名，模块名称，项目代码等时，请注明软件出处 https://gitee.com/stylefeng/guns-separation
 6.若您的项目无法满足以上几点，可申请商业授权，获取Guns商业授权许可，请在官网购买授权，地址为 https://www.stylefeng.cn
  */
-package cn.stylefeng.guns.modular.service;
+package cn.stylefeng.guns.modular.exam.enums;
 
-import org.springframework.stereotype.Service;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
 /**
- * 一个service实现
+ * 考試状态
  *
- * @author stylefeng
- * @date 2020/4/9 18:11
+ * @author shitou
+ * @date 2021/01/10 19:37
  */
-@Service
-public class ExampleService {
+@Getter
+@AllArgsConstructor
+public enum ExamStatusEnum {
 
-    public void example() {
-        System.out.println("这是一个空方法");
-    }
+    /**
+     * 未设置
+     */
+    NOT_SET("NOT_SET", "未设置"),
+
+    /**
+     * 未发布
+     */
+    NOT_RELEASE("NOT_RELEASE", "未发布"),
+
+    /**
+     * 已发布
+     */
+    IS_RELEASE("IS_RELEASE", "已发布"),
+    /**
+     * 进行中
+     */
+    GET_ON("GET_ON", "进行中"),
+    /**
+     * 已结束
+     */
+    END("END", "已结束");
+
+    private final String code;
+
+    private final String message;
 
 }

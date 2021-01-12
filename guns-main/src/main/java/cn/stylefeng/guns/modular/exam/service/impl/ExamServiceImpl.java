@@ -1,4 +1,4 @@
-package cn.stylefeng.guns.modular.service.impl;
+package cn.stylefeng.guns.modular.exam.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.util.ObjectUtil;
@@ -6,12 +6,12 @@ import cn.stylefeng.guns.core.enums.CommonStatusEnum;
 import cn.stylefeng.guns.core.exception.ServiceException;
 import cn.stylefeng.guns.core.factory.PageFactory;
 import cn.stylefeng.guns.core.pojo.page.PageResult;
-import cn.stylefeng.guns.modular.entity.Exam;
-import cn.stylefeng.guns.modular.enums.ExamExceptionEnum;
-import cn.stylefeng.guns.modular.enums.ExamStatusEnum;
-import cn.stylefeng.guns.modular.mapper.ExamMapper;
-import cn.stylefeng.guns.modular.model.param.ExamParam;
-import cn.stylefeng.guns.modular.service.ExamService;
+import cn.stylefeng.guns.modular.exam.entity.Exam;
+import cn.stylefeng.guns.modular.exam.enums.ExamExceptionEnum;
+import cn.stylefeng.guns.modular.exam.enums.ExamStatusEnum;
+import cn.stylefeng.guns.modular.exam.mapper.ExamMapper;
+import cn.stylefeng.guns.modular.exam.model.param.ExamParam;
+import cn.stylefeng.guns.modular.exam.service.ExamService;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -21,10 +21,10 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * tj_exam 服务实现类
+ * 考试管理 服务实现类
  *
- * @author shiTou
- * @date 2021/01/10 19:37
+ * @author ShiTou
+ * @date 2021/01/13 01:35
  */
 @Service
 public class ExamServiceImpl extends ServiceImpl<ExamMapper, Exam> implements ExamService {

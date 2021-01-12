@@ -1,4 +1,4 @@
-package cn.stylefeng.guns.modular.enums;
+package cn.stylefeng.guns.modular.exam.enums;
 
 import cn.stylefeng.guns.core.annotion.ExpEnumType;
 import cn.stylefeng.guns.core.consts.ExpEnumConstant;
@@ -7,10 +7,10 @@ import cn.stylefeng.guns.core.factory.ExpEnumCodeFactory;
 import lombok.Getter;
 
 /**
- * tj_exam相关枚举
+ * 考试管理相关枚举
  *
- * @author shiTou
- * @date 2021/01/10 19:37
+ * @author ShiTou
+ * @date 2021/01/13 01:35
  */
 @Getter
 @ExpEnumType(module = ExpEnumConstant.GUNS_MAIN_MODULE_EXP_CODE, kind = 0)

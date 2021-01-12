@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.stylefeng.guns.modular.scset.mapper.ScSetMapper">
+
+    <!-- 开启二级缓存 -->
+<!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.scset.entity.ScSet">
+		<id column="id" property="id" />
+		<result column="exam_id" property="examId" />
+		<result column="sign_start_time" property="signStartTime" />
+		<result column="sign_end_time" property="signEndTime" />
+		<result column="site_start_time" property="siteStartTime" />
+		<result column="site_end_time" property="siteEndTime" />
+		<result column="skill_pay_start_time" property="skillPayStartTime" />
+		<result column="skill_pay_end_time" property="skillPayEndTime" />
+		<result column="skill_score_start_time" property="skillScoreStartTime" />
+		<result column="skill_score_end_time" property="skillScoreEndTime" />
+		<result column="written_pay_start_time" property="writtenPayStartTime" />
+		<result column="written_pay_end_time" property="writtenPayEndTime" />
+		<result column="print_written_start_time" property="printWrittenStartTime" />
+		<result column="print_written_end_time" property="printWrittenEndTime" />
+		<result column="skill_admission_start_time" property="skillAdmissionStartTime" />
+		<result column="skill_admission_end_time" property="skillAdmissionEndTime" />
+		<result column="written_admission_start_time" property="writtenAdmissionStartTime" />
+		<result column="written_admission_end_time" property="writtenAdmissionEndTime" />
+		<result column="skill_cost" property="skillCost" />
+		<result column="written_cost" property="writtenCost" />
+		<result column="academic_degree" property="academicDegree" />
+		<result column="education" property="education" />
+		<result column="sign_info" property="signInfo" />
+		<result column="examination_info" property="examinationInfo" />
+		<result column="is_review" property="isReview" />
+	</resultMap>
+
+</mapper>

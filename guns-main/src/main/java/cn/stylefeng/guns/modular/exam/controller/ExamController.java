@@ -1,15 +1,14 @@
-package cn.stylefeng.guns.modular.controller;
-
+package cn.stylefeng.guns.modular.exam.controller;
 
 import cn.stylefeng.guns.core.annotion.BusinessLog;
 import cn.stylefeng.guns.core.enums.LogAnnotionOpTypeEnum;
 import cn.stylefeng.guns.core.pojo.page.PageResult;
 import cn.stylefeng.guns.core.pojo.response.ResponseData;
 import cn.stylefeng.guns.core.pojo.response.SuccessResponseData;
-import cn.stylefeng.guns.modular.entity.Exam;
-import cn.stylefeng.guns.modular.enums.ExamStatusEnum;
-import cn.stylefeng.guns.modular.model.param.ExamParam;
-import cn.stylefeng.guns.modular.service.ExamService;
+import cn.stylefeng.guns.modular.exam.entity.Exam;
+import cn.stylefeng.guns.modular.exam.enums.ExamStatusEnum;
+import cn.stylefeng.guns.modular.exam.model.param.ExamParam;
+import cn.stylefeng.guns.modular.exam.service.ExamService;
 import cn.stylefeng.guns.sys.modular.dict.entity.SysDictData;
 import cn.stylefeng.guns.sys.modular.dict.param.SysDictDataParam;
 import cn.stylefeng.guns.sys.modular.dict.service.SysDictDataService;
@@ -22,13 +21,13 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 考试 控制器
+ * 考试管理 控制器
  *
- * @author: shiTou
- * @date: 2021/01/10 19:37
+ * @author: ShiTou
+ * @date: 2021/01/13 01:35
  */
-@RestController
 @Api(tags = "考试管理")
+@RestController
 public class ExamController {
 
     @Resource
@@ -59,7 +58,6 @@ public class ExamController {
      * @author shiTou
      * @date 2021/01/10 19:37
      */
-    @ApiOperation("获取全部考试")
     @GetMapping("/exam/list")
     @BusinessLog(title = "tj_exam_查询所有", opType = LogAnnotionOpTypeEnum.QUERY)
     public ResponseData list(ExamParam examParam) {

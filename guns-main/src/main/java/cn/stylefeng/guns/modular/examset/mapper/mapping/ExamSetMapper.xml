@@ -31,6 +31,8 @@
 		<result column="create_user" property="createUser" />
 		<result column="update_user" property="updateUser" />
 		<result column="del_flag" property="delFlag"/>
+		<result column="subject_cost" property="subjectCost"/>
+		<result column="sign_level" property="signLevel"/>
 	</resultMap>
 
 </mapper>

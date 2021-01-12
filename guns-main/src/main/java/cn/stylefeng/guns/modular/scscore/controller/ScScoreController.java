@@ -5,6 +5,7 @@ import cn.stylefeng.guns.core.annotion.Permission;
 import cn.stylefeng.guns.core.enums.LogAnnotionOpTypeEnum;
 import cn.stylefeng.guns.core.pojo.response.ResponseData;
 import cn.stylefeng.guns.core.pojo.response.SuccessResponseData;
+import cn.stylefeng.guns.modular.scadmission.enums.ScAdmissionTypeEnum;
 import cn.stylefeng.guns.modular.scscore.model.param.ScScoreParam;
 import cn.stylefeng.guns.modular.scscore.service.ScScoreService;
 import cn.stylefeng.guns.sys.modular.file.param.SysFileInfoParam;
@@ -21,12 +22,12 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 综合笔试成绩管理 控制器
+ * 综合笔试成绩/技能成绩管理 控制器
  *
  * @author: ShiTou
  * @date: 2021/01/12 23:45
  */
-@Api(tags = "综合笔试成绩管理")
+@Api(tags = "综合笔试成绩/技能成绩管理")
 @RestController
 public class ScScoreController {
 
@@ -41,23 +42,25 @@ public class ScScoreController {
      * @author ShiTou
      * @date 2021/01/12 23:45
      */
-    @ApiOperation("分页查询综合笔试成绩管理")
+    @ApiOperation("分页查询综合笔试成绩/技能成绩管理")
     @GetMapping("/scScore/page")
     @BusinessLog(title = "综合笔试成绩管理_分页查询", opType = LogAnnotionOpTypeEnum.QUERY)
     public ResponseData page(@RequestParam("pageNo") Integer pageNo,
-                             @RequestParam("pageSize") Integer pageSize) {
+                             @RequestParam("pageSize") Integer pageSize,
+                             ScAdmissionTypeEnum scAdmissionTypeEnum) {
         ScScoreParam scScoreParam = new ScScoreParam();
+        scScoreParam.setExamType(scAdmissionTypeEnum.getCode());
         return new SuccessResponseData(scScoreService.page(scScoreParam));
     }
 
     /**
-     * 删除综合笔试成绩管理
+     * 删除综合笔试成绩/技能成绩管理
      *
      * @author ShiTou
      * @date 2021/01/12 23:45
      */
     @PostMapping("/scScore/delete")
-    @BusinessLog(title = "综合笔试成绩管理_删除", opType = LogAnnotionOpTypeEnum.DELETE)
+    @BusinessLog(title = "综合笔试成绩/技能成绩管理_删除", opType = LogAnnotionOpTypeEnum.DELETE)
     public ResponseData delete(@PathVariable("id") Long[] id) {
         List<Long> longList = Arrays.asList(id);
         longList.forEach(e -> {
@@ -71,33 +74,35 @@ public class ScScoreController {
 
 
     /**
-     * 导出综合笔试成绩管理
+     * 导出综合笔试成绩/技能成绩管理
      *
      * @author shiTou
      * @date 2021/01/11 17:27
      */
-    @ApiOperation("导出综合笔试成绩管理")
+    @ApiOperation("导出综合笔试成绩/技能成绩管理")
     @Permission
     @GetMapping("/scScore/export/{id}")
     @BusinessLog(title = "考试成绩_导出", opType = LogAnnotionOpTypeEnum.EXPORT)
-    public void export(@PathVariable(value = "id", required = false) Integer[] id) {
-        scScoreService.export(id);
+    public void export(@PathVariable(value = "id", required = false) Integer[] id,
+                       ScAdmissionTypeEnum scAdmissionTypeEnum) {
+        scScoreService.export(id,scAdmissionTypeEnum);
     }
 
 
     /**
-     * 导入考试成绩
+     * 导入综合笔试成绩/技能成绩管理
      *
      * @author shiTou
      * @date 2021/01/11 17:27
      */
-    @ApiOperation("导入综合笔试成绩管理")
+    @ApiOperation("导入综合笔试成绩/技能成绩管理")
     @Permission
     @PostMapping("/scScore/import")
     @BusinessLog(title = "考试成绩_导入", opType = LogAnnotionOpTypeEnum.IMPORT)
-    public void importExcel(@RequestParam("file") MultipartFile file) {
+    public void importExcel(@RequestParam("file") MultipartFile file,
+                            ScAdmissionTypeEnum scAdmissionTypeEnum) {
 
-        scScoreService.importExcel(file);
+        scScoreService.importExcel(file,scAdmissionTypeEnum);
     }
 
     /**

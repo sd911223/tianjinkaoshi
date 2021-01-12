@@ -2,6 +2,7 @@ package cn.stylefeng.guns.modular.scadmission.service;
 
 import cn.stylefeng.guns.core.pojo.page.PageResult;
 import cn.stylefeng.guns.modular.scadmission.entity.ScAdmission;
+import cn.stylefeng.guns.modular.scadmission.enums.ScAdmissionTypeEnum;
 import cn.stylefeng.guns.modular.scadmission.model.param.ScAdmissionParam;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.web.multipart.MultipartFile;
@@ -64,7 +65,7 @@ public interface ScAdmissionService extends IService<ScAdmission> {
      */
     ScAdmission detail(ScAdmissionParam scAdmissionParam);
 
-    void export(Integer[] id);
+    void export(Integer[] id, ScAdmissionTypeEnum scAdmissionTypeEnum);
 
-    void importExcel(MultipartFile file);
+    void importExcel(MultipartFile file, ScAdmissionTypeEnum scAdmissionTypeEnum);
 }

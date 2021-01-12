@@ -114,6 +114,16 @@ public class ExamSetParam {
     @ApiModelProperty("报名专业")
     @NotNull(message = "报名专业不能为空")
     private String signProfession;
+    /**
+     * 考试科目与费用
+     */
+    @ApiModelProperty("考试科目与费用")
+    private String subjectCost;
+    /**
+     * 报名级别
+     */
+    @ApiModelProperty("报名级别")
+    private String signLevel;
 
     /**
      * 签名备注

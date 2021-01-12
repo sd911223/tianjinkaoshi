@@ -5,6 +5,7 @@ import cn.stylefeng.guns.core.annotion.Permission;
 import cn.stylefeng.guns.core.enums.LogAnnotionOpTypeEnum;
 import cn.stylefeng.guns.core.pojo.response.ResponseData;
 import cn.stylefeng.guns.core.pojo.response.SuccessResponseData;
+import cn.stylefeng.guns.modular.scadmission.enums.ScAdmissionTypeEnum;
 import cn.stylefeng.guns.modular.scadmission.model.param.ScAdmissionParam;
 import cn.stylefeng.guns.modular.scadmission.service.ScAdmissionService;
 import cn.stylefeng.guns.sys.modular.file.param.SysFileInfoParam;
@@ -21,12 +22,12 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 师承综合笔试准考证信息管理 控制器
+ * 师承综合笔试准考证信息/技能准考证信息管理 控制器
  *
  * @author: ShiTou
  * @date: 2021/01/12 23:31
  */
-@Api(tags = "师承综合笔试准考证信息管理")
+@Api(tags = "师承综合笔试准考证信息/技能准考证信息管理")
 @RestController
 public class ScAdmissionController {
 
@@ -41,11 +42,14 @@ public class ScAdmissionController {
      * @author ShiTou
      * @date 2021/01/12 23:31
      */
+    @ApiOperation("师承综合笔试准考证信息/技能准考证信息管理_分页查询")
     @GetMapping("/scAdmission/page")
-    @BusinessLog(title = "师承综合笔试准考证信息管理_分页查询", opType = LogAnnotionOpTypeEnum.QUERY)
+    @BusinessLog(title = "师承综合笔试准考证信息/技能准考证信息管理_分页查询", opType = LogAnnotionOpTypeEnum.QUERY)
     public ResponseData page(@RequestParam("pageNo") Integer pageNo,
-                             @RequestParam("pageSize") Integer pageSize) {
+                             @RequestParam("pageSize") Integer pageSize,
+                             ScAdmissionTypeEnum scAdmissionTypeEnum) {
         ScAdmissionParam scAdmissionParam = new ScAdmissionParam();
+        scAdmissionParam.setExamType(scAdmissionTypeEnum.getCode());
         return new SuccessResponseData(scAdmissionService.page(scAdmissionParam));
     }
 
@@ -57,7 +61,7 @@ public class ScAdmissionController {
      */
     @ApiOperation("删除师承综合笔试准考证信息管理")
     @PostMapping("/scAdmission/delete/{id}")
-    @BusinessLog(title = "师承综合笔试准考证信息管理_删除", opType = LogAnnotionOpTypeEnum.DELETE)
+    @BusinessLog(title = "师承综合笔试准考证信息/技能准考证信息管理_删除", opType = LogAnnotionOpTypeEnum.DELETE)
     public ResponseData delete(@PathVariable("id") Long[] id) {
         List<Long> longList = Arrays.asList(id);
         longList.forEach(e -> {
@@ -75,12 +79,14 @@ public class ScAdmissionController {
      * @author shiTou
      * @date 2021/01/11 17:27
      */
-    @ApiOperation("导出师承综合笔试准考证信息管理")
+    @ApiOperation("导出师师承综合笔试准考证信息/技能准考证信息管理")
     @Permission
     @GetMapping("/scAdmission/export/{id}")
     @BusinessLog(title = "考试成绩_导出", opType = LogAnnotionOpTypeEnum.EXPORT)
-    public void export(@PathVariable(value = "id", required = false) Integer[] id) {
-        scAdmissionService.export(id);
+    public void export(@PathVariable(value = "id", required = false) Integer[] id,
+                       ScAdmissionTypeEnum scAdmissionTypeEnum) {
+
+        scAdmissionService.export(id, scAdmissionTypeEnum);
     }
 
 
@@ -90,13 +96,13 @@ public class ScAdmissionController {
      * @author shiTou
      * @date 2021/01/11 17:27
      */
-    @ApiOperation("导入师承综合笔试准考证信息管理")
+    @ApiOperation("导入师承综合笔试准考证信息/技能准考证信息管理")
     @Permission
     @PostMapping("/scAdmission/import")
     @BusinessLog(title = "考试成绩_导入", opType = LogAnnotionOpTypeEnum.IMPORT)
-    public void importExcel(@RequestParam("file") MultipartFile file) {
+    public void importExcel(@RequestParam("file") MultipartFile file, ScAdmissionTypeEnum scAdmissionTypeEnum) {
 
-        scAdmissionService.importExcel(file);
+        scAdmissionService.importExcel(file, scAdmissionTypeEnum);
     }
 
     /**
