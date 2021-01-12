@@ -51,5 +51,9 @@ public class Score extends BaseEntity {
      */
     @TableField("del_flag")
     private String delFlag;
-
+    /**
+     * 所属考试
+     */
+    @TableField("belonging_exam")
+    private Long belongingExam;
 }

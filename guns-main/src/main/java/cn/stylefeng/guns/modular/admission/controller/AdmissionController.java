@@ -42,8 +42,11 @@ public class AdmissionController {
     @ApiOperation("分页查询准考证")
     @GetMapping("/admission/page")
     @BusinessLog(title = "准考证管理_分页查询", opType = LogAnnotionOpTypeEnum.QUERY)
-    public ResponseData page(@RequestParam("pageNo") Integer pageNo, @RequestParam("pageSize") Integer pageSize) {
+    public ResponseData page(@RequestParam("pageNo") Integer pageNo,
+                             @RequestParam("pageSize") Integer pageSize,
+                             @RequestParam("examId") Long examId) {
         AdmissionParam admissionParam = new AdmissionParam();
+        admissionParam.setBelongingExam(examId);
         return new SuccessResponseData(admissionService.page(admissionParam));
     }
 
@@ -87,9 +90,9 @@ public class AdmissionController {
     @Permission
     @PostMapping("/admission/import")
     @BusinessLog(title = "准考证_导入", opType = LogAnnotionOpTypeEnum.IMPORT)
-    public void importExcel(@RequestParam("file") MultipartFile file) {
+    public void importExcel(@RequestParam("file") MultipartFile file, @RequestParam("examId") Long examId) {
 
-        admissionService.importExcel(file);
+        admissionService.importExcel(file,examId);
     }
 
     /**

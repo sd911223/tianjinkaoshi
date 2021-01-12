@@ -16,6 +16,7 @@
         <result column="create_user" property="createUser"/>
         <result column="update_user" property="updateUser"/>
         <result column="del_flag" property="delFlag"/>
+        <result column="belonging_exam" property="belongingExam"/>
     </resultMap>
     <delete id="deleteScoreByIds">
         update tj_score set del_flag = '2' where id in

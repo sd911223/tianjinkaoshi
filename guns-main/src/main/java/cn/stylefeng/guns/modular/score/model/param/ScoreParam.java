@@ -67,5 +67,9 @@ public class ScoreParam extends BaseParam {
      */
     @NotNull(message = "删除标志（0代表存在 2代表删除）不能为空",groups = {add.class,edit.class})
     private String delFlag;
+    /**
+     * 所属考试
+     */
+    private Long belongingExam;
 
 }

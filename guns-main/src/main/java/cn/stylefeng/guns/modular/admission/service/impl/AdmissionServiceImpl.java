@@ -40,8 +40,10 @@ public class AdmissionServiceImpl extends ServiceImpl<AdmissionMapper, Admission
 
         // 构造条件
         LambdaQueryWrapper<Admission> queryWrapper = new LambdaQueryWrapper<>();
+        //有效数据
         queryWrapper.eq(Admission::getDelFlag, CommonStatusEnum.ENABLE.getCode());
-
+        //所属考试
+        queryWrapper.eq(Admission::getBelongingExam, admissionParam.getBelongingExam());
         // 查询分页结果
         return new PageResult<>(this.page(PageFactory.defaultPage(), queryWrapper));
     }
@@ -102,12 +104,12 @@ public class AdmissionServiceImpl extends ServiceImpl<AdmissionMapper, Admission
     }
 
     @Override
-    public void importExcel(MultipartFile file) {
+    public void importExcel(MultipartFile file,Long examId) {
         List<Admission> list = PoiUtil.importExcel(file, 0, 1, Admission.class);
         if (!list.isEmpty()) {
             list.forEach(e -> {
                 e.setCreateTime(new Date());
-                e.setId(null);
+                e.setBelongingExam(examId);
                 this.save(e);
             });
         }

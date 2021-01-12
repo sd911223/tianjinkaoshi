@@ -66,5 +66,5 @@ public interface ScoreService extends IService<Score> {
 
     void export(Integer[] id);
 
-    void importExcel(MultipartFile file);
+    void importExcel(MultipartFile file,Long examId);
 }

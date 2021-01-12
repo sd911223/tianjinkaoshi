@@ -42,8 +42,11 @@ public class ScoreController {
     @ApiOperation("分页查询考试成绩")
     @GetMapping("/score/page")
     @BusinessLog(title = "考试成绩_分页查询", opType = LogAnnotionOpTypeEnum.QUERY)
-    public ResponseData page(@RequestParam("pageNo") Integer pageNo, @RequestParam("pageSize") Integer pageSize) {
+    public ResponseData page(@RequestParam("pageNo") Integer pageNo,
+                             @RequestParam("pageSize") Integer pageSize,
+                             @RequestParam("examId") Long examId) {
         ScoreParam scoreParam = new ScoreParam();
+        scoreParam.setBelongingExam(examId);
         return new SuccessResponseData(scoreService.page(scoreParam));
     }
 
@@ -73,9 +76,9 @@ public class ScoreController {
     @Permission
     @PostMapping("/score/import")
     @BusinessLog(title = "考试成绩_导入", opType = LogAnnotionOpTypeEnum.IMPORT)
-    public void importExcel(@RequestParam("file") MultipartFile file) {
+    public void importExcel(@RequestParam("file") MultipartFile file, @RequestParam("examId") Long examId) {
 
-        scoreService.importExcel(file);
+        scoreService.importExcel(file,examId);
     }
 
     /**

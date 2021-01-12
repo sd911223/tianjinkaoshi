@@ -39,8 +39,10 @@ public class ScoreServiceImpl extends ServiceImpl<ScoreMapper, Score> implements
 
         // 构造条件
         LambdaQueryWrapper<Score> queryWrapper = new LambdaQueryWrapper<>();
+        //有效的数据
         queryWrapper.eq(Score::getDelFlag, CommonStatusEnum.ENABLE.getCode());
-
+        //所属考试
+        queryWrapper.eq(Score::getBelongingExam, scoreParam.getBelongingExam());
         // 查询分页结果
         return new PageResult<>(this.page(PageFactory.defaultPage(), queryWrapper));
     }
@@ -102,12 +104,12 @@ public class ScoreServiceImpl extends ServiceImpl<ScoreMapper, Score> implements
     }
 
     @Override
-    public void importExcel(MultipartFile file) {
+    public void importExcel(MultipartFile file, Long examId) {
         List<Score> list = PoiUtil.importExcel(file, 0, 1, Score.class);
         if (!list.isEmpty()) {
             list.forEach(e -> {
                 e.setCreateTime(new Date());
-                e.setId(null);
+                e.setBelongingExam(examId);
                 this.save(e);
             });
         }
