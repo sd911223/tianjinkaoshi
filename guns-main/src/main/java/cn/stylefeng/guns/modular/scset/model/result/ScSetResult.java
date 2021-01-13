@@ -1,5 +1,6 @@
 package cn.stylefeng.guns.modular.scset.model.result;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import lombok.Data;
 import java.io.Serializable;
@@ -106,12 +107,12 @@ public class ScSetResult implements Serializable {
     /**
      * 技能考试报名费用
      */
-    private  skillCost;
+    private BigDecimal skillCost;
 
     /**
      * 笔试报名费用
      */
-    private  writtenCost;
+    private  BigDecimal writtenCost;
 
     /**
      * 学位

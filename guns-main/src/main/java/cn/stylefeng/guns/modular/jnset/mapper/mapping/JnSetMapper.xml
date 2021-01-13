@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.stylefeng.guns.modular.jnset.mapper.JnSetMapper">
+
+    <!-- 开启二级缓存 -->
+<!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.jnset.entity.JnSet">
+		<id column="id" property="id" />
+		<result column="exam_id" property="examId" />
+		<result column="exam_name" property="examName" />
+		<result column="correspond_unit" property="correspondUnit" />
+		<result column="sign_start_time" property="signStartTime" />
+		<result column="sign_end_time" property="signEndTime" />
+		<result column="pay_start_time" property="payStartTime" />
+		<result column="pay_end_time" property="payEndTime" />
+		<result column="print_start_time" property="printStartTime" />
+		<result column="print_end_time" property="printEndTime" />
+		<result column="close_time" property="closeTime" />
+		<result column="interview_pay_start_time" property="interviewPayStartTime" />
+		<result column="interview_pay_end_time" property="interviewPayEndTime" />
+		<result column="education_start_time" property="educationStartTime" />
+		<result column="education_end_time" property="educationEndTime" />
+		<result column="interview_cost" property="interviewCost" />
+		<result column="report_start_time" property="reportStartTime" />
+		<result column="report_end_time" property="reportEndTime" />
+		<result column="interview_print_start_time" property="interviewPrintStartTime" />
+		<result column="interview_print_end_time" property="interviewPrintEndTime" />
+		<result column="postgraduate_start_time" property="postgraduateStartTime" />
+		<result column="postgraduate_end_time" property="postgraduateEndTime" />
+		<result column="is_education" property="isEducation" />
+		<result column="is_interview" property="isInterview" />
+		<result column="specialist" property="specialist" />
+		<result column="undergraduate_course" property="undergraduateCourse" />
+		<result column="postgraduate" property="postgraduate" />
+		<result column="doctor" property="doctor" />
+		<result column="graduate_nature" property="graduateNature" />
+		<result column="is_review" property="isReview" />
+		<result column="audition_notice" property="auditionNotice" />
+		<result column="exam_notice" property="examNotice" />
+		<result column="registered_set" property="registeredSet" />
+		<result column="subject_cost_set" property="subjectCostSet" />
+		<result column="create_time" property="createTime" />
+		<result column="update_time" property="updateTime" />
+		<result column="create_user" property="createUser" />
+		<result column="update_user" property="updateUser" />
+	</resultMap>
+
+</mapper>
