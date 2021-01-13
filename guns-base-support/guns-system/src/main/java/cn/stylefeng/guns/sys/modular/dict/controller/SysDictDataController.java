@@ -31,6 +31,8 @@ import cn.stylefeng.guns.core.pojo.response.ResponseData;
 import cn.stylefeng.guns.core.pojo.response.SuccessResponseData;
 import cn.stylefeng.guns.sys.modular.dict.param.SysDictDataParam;
 import cn.stylefeng.guns.sys.modular.dict.service.SysDictDataService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,6 +48,7 @@ import javax.annotation.Resource;
  * @date 2020/3/31 20:49
  */
 @RestController
+@Api(tags = "系统字典值控制器")
 public class SysDictDataController {
 
     @Resource
@@ -70,6 +73,7 @@ public class SysDictDataController {
      * @author xuyuxiang, fengshuonan
      * @date 2020/3/31 21:03
      */
+    @ApiOperation("某个字典类型下所有的字典")
     @Permission
     @GetMapping("/sysDictData/list")
     @BusinessLog(title = "系统字典值_列表", opType = LogAnnotionOpTypeEnum.QUERY)
