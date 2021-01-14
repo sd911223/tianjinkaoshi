@@ -61,7 +61,7 @@ public class ScoreController {
     @Permission
     @GetMapping("/score/export/{id}")
     @BusinessLog(title = "考试成绩_导出", opType = LogAnnotionOpTypeEnum.EXPORT)
-    public ResponseData export(@PathVariable(value = "id", required = false) Integer[] id) {
+    public ResponseData export(@PathVariable(value = "id", required = false) Long[] id) {
         scoreService.export(id);
         return new SuccessResponseData();
     }

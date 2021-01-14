@@ -90,13 +90,13 @@ public class ScoreServiceImpl extends ServiceImpl<ScoreMapper, Score> implements
     }
 
     @Override
-    public void export(Integer[] id) {
+    public void export(Long[] id) {
         if (id == null) {
             ScoreParam scoreParam = new ScoreParam();
             List<Score> list = this.list(scoreParam);
             PoiUtil.exportExcelWithStream("Score.xls", Score.class, list);
         } else {
-            List<Integer> list = Arrays.asList(id);
+            List<Long> list = Arrays.asList(id);
             List<Score> scoreList = this.listByIds(list);
             PoiUtil.exportExcelWithStream("Score.xls", Score.class, scoreList);
         }
