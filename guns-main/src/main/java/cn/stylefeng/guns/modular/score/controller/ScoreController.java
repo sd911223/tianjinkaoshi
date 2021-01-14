@@ -61,8 +61,9 @@ public class ScoreController {
     @Permission
     @GetMapping("/score/export/{id}")
     @BusinessLog(title = "考试成绩_导出", opType = LogAnnotionOpTypeEnum.EXPORT)
-    public void export(@PathVariable(value = "id", required = false) Integer[] id) {
+    public ResponseData export(@PathVariable(value = "id", required = false) Integer[] id) {
         scoreService.export(id);
+        return new SuccessResponseData();
     }
 
 
@@ -76,9 +77,10 @@ public class ScoreController {
     @Permission
     @PostMapping("/score/import")
     @BusinessLog(title = "考试成绩_导入", opType = LogAnnotionOpTypeEnum.IMPORT)
-    public void importExcel(@RequestParam("file") MultipartFile file, @RequestParam("examId") Long examId) {
+    public ResponseData importExcel(@RequestParam("file") MultipartFile file, @RequestParam("examId") Long examId) {
 
-        scoreService.importExcel(file,examId);
+        scoreService.importExcel(file, examId);
+        return new SuccessResponseData();
     }
 
     /**
@@ -92,7 +94,7 @@ public class ScoreController {
     @BusinessLog(title = "文件信息表_下载文件", opType = LogAnnotionOpTypeEnum.OTHER)
     public void download(HttpServletResponse response) {
         SysFileInfoParam sysFileInfoParam = new SysFileInfoParam();
-        sysFileInfoParam.setId(1348595505906503681L);
+        sysFileInfoParam.setId(1349748157642223618L);
         sysFileInfoService.download(sysFileInfoParam, response);
     }
 

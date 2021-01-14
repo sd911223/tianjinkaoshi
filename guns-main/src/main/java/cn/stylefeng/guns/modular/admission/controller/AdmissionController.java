@@ -75,8 +75,9 @@ public class AdmissionController {
     @Permission
     @GetMapping("/admission/export/{id}")
     @BusinessLog(title = "准考证_导出", opType = LogAnnotionOpTypeEnum.EXPORT)
-    public void export(@PathVariable(value = "id", required = false) Integer[] id) {
+    public ResponseData export(@PathVariable(value = "id", required = false) Integer[] id) {
         admissionService.export(id);
+        return new SuccessResponseData();
     }
 
 
@@ -90,9 +91,10 @@ public class AdmissionController {
     @Permission
     @PostMapping("/admission/import")
     @BusinessLog(title = "准考证_导入", opType = LogAnnotionOpTypeEnum.IMPORT)
-    public void importExcel(@RequestParam("file") MultipartFile file, @RequestParam("examId") Long examId) {
+    public ResponseData importExcel(@RequestParam("file") MultipartFile file, @RequestParam("examId") Long examId) {
 
         admissionService.importExcel(file,examId);
+        return new SuccessResponseData();
     }
 
     /**
