@@ -1,0 +1,199 @@
+<!--
+ * @Author: kevin
+ * @Date: 2021-01-12 11:37:02
+ * @LastEditors: Do not edit
+ * @Description: 准考证
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>准考证</title>
+
+<link href="./css/Eform_dis.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="../../layui/css/layui.css">
+<link href="./css/noprint.css" rel="Stylesheet" type="text/css" media="print">
+
+</head>
+
+<body>
+
+<script language="javascript" type="text/javascript">
+  function doPrint() {
+    factory.printing.header = "";
+    factory.printing.footer = "";
+    factory.printing.portrait = false; //portrait是指打印方向，设置为true就是纵向，false就是横向。
+
+
+    factory.DoPrint(true); //设置为false，直接打
+    //window.print();
+  }
+
+  function p_preview() {
+    factory.printing.Preview();
+  }
+</script>
+
+
+
+<table width="1050" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tbody>
+  <tr>
+    <td height="14" colspan="2" align="center" class="NText">
+      <table width="100%" border="0" cellpadding="0" cellspacing="0" style="border:none;">
+        <tbody>
+        <tr>
+          <td height="60" align="center" class="FormTitle" style="border:none;line-height:28px;"><strong>2020年北辰区卫健委所属单位公开招聘事业编考试</strong>
+          </td>
+        </tr>
+        <tr>
+          <td height="45" align="center" class="ExamTitle" style="border:none;font-size:32px">准 考 证</td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+    <td width="475" rowspan="7" align="left" valign="top" class="nText">
+      <table width="98%" border="0" cellspacing="0" cellpadding="0" style="border:none;">
+        <tbody>
+        <tr>
+          <td height="40" align="center" valign="middle" class="FormTitle"
+              style="border:none; padding:5px;font-size:24px; line-height:24px;font-weight:bold"><strong>考 生 须
+            知</strong></td>
+        </tr>
+        <tr>
+          <td height="373" align="left" valign="top" class="ERtxt" style="border:none; padding:5px; "><p
+                  style="line-height: normal; margin-top: 5px; margin-bottom: 10px;">
+            1、为做好疫情防疫工作，请考生提前40分钟到达考点，主动接受体温测量，出示天津健康码“绿码”。<span style="color: rgb(192, 0, 0);"><strong>考生须仔细阅读最新发布的《防疫与安全须知》,下载新版《考生安全承诺书》并如实填写,于笔试当天交给工作人员。</strong></span>除在核实个人身份时可短暂摘除口罩外，其他时间均须佩戴口罩。
+          </p>
+            <p style="line-height: normal; margin-top: 5px; margin-bottom: 10px;">2、<strong>考生必须带齐准考证和有效身份证原件（缺少任一证件不能参加考试）进入考场，对号入座，将准考证和身份证放置在课桌左上角待查验。</strong>考试开始30分钟后，考生不得进入考场参加考试。考试开始60分钟内不得交卷退场。
+            </p>
+            <p style="line-height: normal; margin-top: 5px; margin-bottom: 10px;">
+              3、考生入场除携带必要的文具（钢笔或圆珠笔、2B铅笔、橡皮）外，不得携带通讯工具、规定以外的电子用品以及任何与考试内容相关的资料进入座位。请将手机关机后放到指定的位置，不得随身携带。凡发现将上述电子设备带至座位，一律按照相关规定处理。考试开始后考生不得相互借用文具。</p>
+            <p style="line-height: normal; margin-top: 5px; margin-bottom: 10px;">
+              4、考生必须严格遵守考场纪律，保持考场安静。考场内禁止吸烟，严禁交头接耳、左顾右盼，严禁偷看、抄袭他人试题答案或交换试卷，严禁抄录、拍摄试题，严禁冒名替考。</p>
+            <p style="line-height: normal; margin-top: 5px; margin-bottom: 10px;">
+              5、在考试结束信号发出后，考生应当立即停止答题。考生不得将试卷、答题卡和草稿纸带出考场。提前交卷的考生，不得在考场附近逗留、谈论。</p>
+            <p style="line-height: normal; margin-top: 5px; margin-bottom: 10px;">
+              6、考生应自觉服从监考人员的管理，不得以任何理由妨碍监考人员进行正常工作。对违反《考场规则》、不服从监考人员管理的考生，监考人员将依据《事业单位公开招聘违纪违规行为处理规定》（人社部令第35号）进行处理。</p>
+            <p style="line-height: normal; margin-top: 5px; margin-bottom: 10px;">7、笔试成绩查询时间：<span
+                    style="color: rgb(0, 0, 0);">自2020年12月7日9:00起，</span>报考人员可登录报名网址查询笔试成绩及资格复审安排。</p></td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td width="448" height="60" align="center" class="EItxt">考 生 基 本 信 息</td>
+    <td width="128" rowspan="2" align="center" valign="middle" class="nText"><img src="./files/HY_2020110815484743743.jpg" width="112"
+                                            height="156" style="border:2px solid #FFF;"></td>
+  </tr>
+  <tr>
+    <td align="left" class="nText">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border:none;padding-left:3px;">
+        <tbody>
+        <tr>
+          <td width="65%" height="50" style="border:none;" class="btext"><strong>姓名：</strong>曹俪龄</td>
+          <td width="35%" style="border:none;" class="btext"><strong>报考序号：</strong>07827</td>
+        </tr>
+        <tr>
+          <td height="50" style="border:none;" class="btext"><strong>身份证号：</strong>120222199612236768</td>
+          <td style="border:none;" class="btext"><strong>学历：</strong>本科</td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="60" align="center" colspan="2" class="EItxt"><strong>技能考核第一场</strong></td>
+  </tr>
+  <tr>
+    <td height="28" colspan="2" align="left" valign="top" class="nText">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border:none; padding-left:3px;">
+        <tbody>
+        <tr>
+          <td height="25" colspan="2" width="49%" style="border:none;" class="btext"><strong>考试名称：</strong>技能考核考场信息</td>
+        </tr>
+        <tr>
+          <td height="25" width="49%" style="border:none;" class="btext"><strong>准考证号：</strong>2011213017</td>
+          <td width="51%" style="border:none;" class="btext"><strong>报考专业：</strong>1-全科</td>
+        </tr>
+        <tr>
+          <td height="25" colspan="2" style="border:none;" class="btext"><strong>考试地点：</strong>天津市医学考试中心<img
+                  src="./files/blank.gif" width="10"> <strong>考场号：</strong>机考2考场<strong><img
+                  src="./files/blank.gif" width="10"> 座位号：</strong>11
+          </td>
+        </tr>
+        <tr>
+          <td height="25" colspan="2" style="border:none;" class="btext"><strong>考试地址：</strong>天津市红桥区咸阳北路6号</td>
+        </tr>
+        <tr>
+          <td height="25" colspan="2" style="border:none;" class="btext"><strong>考试时间：</strong>2020年11月21日上午8:30-10:00
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  <tr>
+    <td height="60" colspan="2" align="center" class="EItxt"><strong>技能考核第第二场</strong></td>
+  </tr>
+  <tr>
+    <td height="28" colspan="2" align="left" valign="top" class="nText">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border:none; padding-left:3px;">
+        <tbody>
+        <tr>
+          <td width="49%" height="25" style="border:none;" class="btext"><strong>准考证号：</strong>2011213017</td>
+          <td width="51%" style="border:none;" class="btext"><strong>报考专业：</strong>4-临床医学</td>
+        </tr>
+        <tr>
+          <td height="25" colspan="2" style="border:none;" class="btext"><strong>考试地点：</strong>天津市医学考试中心<img
+                  src="./files/blank.gif" width="10"> <strong>考场号：</strong>纸笔1考场<strong><img
+                  src="./files/blank.gif" width="10"> 座位号：</strong>17
+          </td>
+        </tr>
+        <tr>
+          <td height="25" colspan="2" style="border:none;" class="btext"><strong>考试地址：</strong>天津市红桥区咸阳北路6号</td>
+        </tr>
+        <tr>
+          <td height="25" colspan="2" style="border:none;" class="btext"><strong>考试时间：</strong>2020年11月21日上午11:00-12:30
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<!--endprint-->
+<div class="noprint">
+  <table width="1100" border="0" align="center" cellpadding="0" cellspacing="0" style="border:none">
+    <tbody>
+    <tr>
+      <td width="30%" height="60" align="center" valign="middle" style="border:none">
+        <form id="form1" name="form1" method="post" action="http://www.tjwsrc.com/mypageEnt.aspx" target="_blank">
+         <!-- <input name="url" type="hidden" id="url"
+                 value="http://127.0.0.1:8080/District_eca_down.asp?pno=120222199612236768&amp;Exam_HID=7&amp;Exam_JID=1127">
+          <input type="image" src="./files/btn_examcard.gif" style="border:none; width:245px; height:41px;"></form>
+          -->
+        <a type="button" onclick="location.href='http://127.0.0.1:8080/District_eca_down.asp?pno=120222199612236768&amp;Exam_HID=7&amp;Exam_JID=1127'"
+                class="layui-btn" id="\">下载准考证</a>
+
+      </td>
+      <td width="30%" align="center" style="border:none">
+        <a  class="layui-btn" href="http://www.tjwsrc.com/help_print.asp" target="_blank">在线打印设置向导</a>
+      </td>
+      <td width="30%" align="center" style="border:none"><a
+              class="layui-btn"
+              href="http://www.tjwsrc.com/District_ECA_form.asp?Pno=120222199612236768&amp;Exam_HID=7&amp;Exam_JID=1127&amp;Examurl=District_ECA_form.asp#"
+              onclick="javascript:doPrint()">点击在线打印</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+</body>
+</html>

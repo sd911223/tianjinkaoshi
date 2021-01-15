@@ -32,6 +32,10 @@
 		<result column="sign_info" property="signInfo" />
 		<result column="examination_info" property="examinationInfo" />
 		<result column="is_review" property="isReview" />
+		<result column="create_time" property="createTime" />
+		<result column="update_time" property="updateTime" />
+		<result column="create_user" property="createUser" />
+		<result column="update_user" property="updateUser" />
 	</resultMap>
 
 </mapper>

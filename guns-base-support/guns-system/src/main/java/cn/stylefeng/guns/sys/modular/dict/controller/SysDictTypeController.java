@@ -31,6 +31,8 @@ import cn.stylefeng.guns.core.pojo.response.ResponseData;
 import cn.stylefeng.guns.core.pojo.response.SuccessResponseData;
 import cn.stylefeng.guns.sys.modular.dict.param.SysDictTypeParam;
 import cn.stylefeng.guns.sys.modular.dict.service.SysDictTypeService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,6 +48,7 @@ import javax.annotation.Resource;
  * @date 2020/3/31 20:49
  */
 @RestController
+@Api(tags = "系统字典类型控制器")
 public class SysDictTypeController {
 
     @Resource
@@ -108,6 +111,7 @@ public class SysDictTypeController {
      * @author xuyuxiang，fengshuonan
      * @date 2020/3/31 20:30
      */
+    @ApiOperation("添加系统字典类型")
     @Permission
     @PostMapping("/sysDictType/add")
     @BusinessLog(title = "系统字典类型_增加", opType = LogAnnotionOpTypeEnum.ADD)

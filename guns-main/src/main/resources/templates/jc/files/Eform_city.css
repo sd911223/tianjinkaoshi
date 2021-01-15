@@ -1,0 +1,144 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,td,th {
+	font-family: 宋体;
+	font-size: 12px;
+	color: #333333;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.FormTitle {
+	font-family: "黑体";
+	font-size: 25px;
+	font-style: normal;
+	line-height: 30px;
+	font-weight: bold;
+	color: #000;
+	text-decoration: none;
+}
+.FormTitlex {
+	font-family: "黑体";
+	font-size: 20px;
+	font-style: normal;
+	line-height: 30px;
+	font-weight: bold;
+	color: #000;
+	text-decoration: none;
+}
+.TitleSmall{
+	font-family: "宋体";
+	font-size: 20px;
+	font-style: normal;
+	line-height: 30px;
+	font-weight: bold;
+	color: #000;
+	text-decoration: none;
+}
+.CText {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 28px;
+	font-weight: normal;
+	color: #000;
+	text-align: left;
+	text-indent: 5px;
+}
+
+.CSText {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 28px;
+	font-weight: normal;
+	color: #666;
+	text-align: left;
+	text-indent: 5px;
+}
+.FText {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 28px;
+	font-weight: normal;
+	color: #000;
+	text-align: center;
+}
+.NText {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	line-height: 28px;
+	font-weight: normal;
+	color: #000;
+}
+.RText {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 26px;
+	font-weight: normal;
+	color: #000;
+}
+.NNText {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 18px;
+	font-weight: normal;
+	color: #000;
+}
+table{border-left: 1px solid #000; border-bottom: 1px solid #000;}
+td{border-right:1px solid #000;border-top: 1px solid #000;}
+.Bordernone {
+	border: 1px solid #CCC;
+}
+.common {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 32px;
+	color: #000;
+	text-decoration: none;
+}
+.btext {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	line-height: 30px;
+	color: #000;
+	text-align: left;
+	font-weight:normal;
+	text-indent: 5px;
+}
+.btextm {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	line-height: 30px;
+	color: #000;
+	text-align: center;
+	font-weight:bold;
+}
+.ExamTitle {
+	font-family: "黑体";
+	font-size: 28px;
+	font-style: normal;
+	line-height: 30px;
+	font-weight: bold;
+	color: #000;
+	text-decoration: none;
+}
+.ERtxt {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 30px;
+	color: #000;
+	text-align: left;
+	font-weight:normal
+}
+.EItxt {
+	font-family: "黑体";
+	font-size: 23px;
+	font-style: normal;
+	line-height: 30px;
+	font-weight: bold;
+	color: #000;
+	text-decoration: none;
+}

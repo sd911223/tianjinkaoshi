@@ -71,7 +71,6 @@ public class ExamSetController {
      * @author shiTou
      * @date 2021/01/12 22:20
      */
-    @ApiOperation("添加 高级/基层考试设置")
     @PostMapping("/examSet/add")
     @BusinessLog(title = "考试设置_增加", opType = LogAnnotionOpTypeEnum.ADD)
     public ResponseData add(@RequestBody @Validated(ExamSetParam.class) ExamSetParam examSetParam) {

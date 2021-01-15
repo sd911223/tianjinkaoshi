@@ -1,0 +1,114 @@
+@charset "utf-8";
+/* CSS Document */
+
+body,td,th {
+	font-family: 宋体;
+	font-size: 16px;
+	color: #333333;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.FormTitle {
+	font-family: "黑体";
+	font-size: 30px;
+	font-style: normal;
+	line-height: 50px;
+	font-weight: bold;
+	color: #000;
+	text-decoration: none;
+}
+.FormTitlex {
+	font-family: "黑体";
+	font-size: 20px;
+	font-style: normal;
+	line-height: 30px;
+	font-weight: bold;
+	color: #000;
+	text-decoration: none;
+}
+.TitleSmall{
+	font-family: "宋体";
+	font-size: 20px;
+	font-style: normal;
+	line-height: 30px;
+	font-weight: bold;
+	color: #000;
+	text-decoration: none;
+}
+.CText {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 28px;
+	font-weight: normal;
+	color: #000;
+	text-align: center;
+	text-indent: 1px;
+}
+.CSText {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 28px;
+	font-weight: normal;
+	color: #666;
+	text-align: center;
+	text-indent: 1px;
+}
+.FText {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 28px;
+	font-weight: normal;
+	color: #000;
+	text-align: left;
+}
+.NText {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	line-height: 28px;
+	font-weight: normal;
+	color: #000;
+	text-align:center;
+	word-break:break-all;
+}
+.NNText {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	line-height: 18px;
+	font-weight: normal;
+	color: #000;
+	text-align:left;
+	text-indent:10px;
+}
+table{border-left: 1px solid #000; border-bottom: 1px solid #000;}
+td{border-right:1px solid #000;border-top: 1px solid #000;}
+.Bordernone {
+	border: 1px solid #CCC;
+}
+.common {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 32px;
+	color: #000;
+	text-decoration: none;
+}
+.btext {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	line-height: 30px;
+	color: #000;
+	text-align: left;
+	font-weight:normal
+}
+.ExamTitle {
+	font-family: "黑体";
+	font-size: 36px;
+	font-style: normal;
+	line-height: 40px;
+	font-weight: bold;
+	color: #000;
+	text-decoration: none;
+}

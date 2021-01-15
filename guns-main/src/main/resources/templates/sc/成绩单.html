@@ -1,0 +1,152 @@
+<!--
+ * @Author: kevin
+ * @Date: 2021-01-12 11:37:02
+ * @LastEditors: Do not edit
+ * @Description: 成绩单
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2020年传统医学师承出师考核 - 天津市医学考试中心</title>
+  <meta name="keywords" content="天津卫生人才网,天津市卫生计生人才培训和交流服务中心,天津市医学考试中心">
+  <meta name="description"
+        content="天津市卫生计生人才培训和交流服务中心是经天津市编制委员会批准成立，隶属天津市卫生局从事本市卫生行业人力资源开发的社会化服务机构。遵循国家有关法律法规，通过政策导向和市场机制的运作方式，面向全市卫生行业积极开展人力资源开发、人才交流、人事代理、人才测评等方面的工作，为本市卫生行业各单位、各类人员提供社会化服务。">
+  <link href="./files/masterform.css" rel="stylesheet" type="text/css">
+  <link href="./files/noprint.css" rel="Stylesheet" type="text/css" media="print">
+  <link rel="stylesheet" href="../../layui/css/layui.css">
+  <script language="javascript" src="./files/LodopFuncs.js"></script>
+</head>
+<body>
+<!--  <object id="LODOP_OB" classid="clsid:2105C259-1E0C-4534-8141-A753534CB4CA" width="0" height="0">
+ <embed id="LODOP_EM" type="application/x-print-lodop" width="0" height="0" pluginspage="install_lodop32.exe">
+</object> -->
+
+
+<div class="noprint">
+  <table width="1100" border="0" align="center" cellpadding="0" cellspacing="0" class="common" style="border:none">
+    <form id="form1" name="form1" method="post" action="http://www.tjwsrc.com/mypdflength.aspx" target="_blank"></form>
+    <tbody>
+    <tr>
+      <td height="30" align="center" valign="middle" style="border:none">
+        <a class="layui-btn" href="http://127.0.0.1:8080/master_ECBS_down.asp?pno=J120805126">
+          下载PDF</a>
+        <a class="layui-btn" href="http://www.tjwsrc.com/master_ECBS_form.asp?Pno=J120805126#"
+           onclick="javascript:prn1_preview()">在线打印</a>
+      </td>
+    </tr>
+    <!-- <tr>
+      <td height="40" align="center" valign="middle" style="border:none" class="sixTText">选择打印机：
+          <input type="radio" id="Radio1" name="RadioS1" checked="">
+          默认打印机
+          <input type="radio" id="Radio2" name="RadioS1" onclick="CreatePrinterList()">
+          指定打印机:
+          <select name="PrinterList" size="1" id="PrinterList">
+          </select>
+      <a href="javascript:prn1_print()">直接打印</a></td>
+    </tr>
+    <tr>
+      <td height="30" align="center" valign="middle" style="border:none" class="TitleSmall"><a href="javascript:CheckIsInstall()"><font color="#FF0000"><strong>查看本机是否安装控件</strong></font></a></td>
+    </tr> -->
+
+
+    </tbody>
+  </table>
+</div>
+<!--startprint-->
+<link href="./files/scoreform.css" rel="stylesheet" type="text/css">
+<link href="./files/noprint.css" rel="Stylesheet" type="text/css" media="print">
+
+<div id="div1">
+  <table width="930" border="0" align="center" cellpadding="0" cellspacing="0" style="border:none">
+    <tbody>
+    <tr>
+      <td height="150" align="center" class="FormTitle" style="border:none;font-size:32px;">2020年传统医学师承出师考核实践技能考试成绩单
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <table border="0" align="center" cellpadding="0" cellspacing="0" class="common">
+    <tbody>
+    <tr>
+      <td width="130" height="55" align="center" class="NText"><strong>准考证号</strong></td>
+      <td width="100" align="center" class="NText"><strong>姓名</strong></td>
+      <td width="80" align="center" valign="middle" class="NText"><strong>类别</strong></td>
+      <td width="200" align="center" valign="middle" class="NText"><strong>身份证号</strong></td>
+      <td width="300" align="center" valign="middle" class="NText"><strong>单位名称</strong></td>
+      <td width="100" align="center" valign="middle" class="NText"><strong>考试结果</strong></td>
+    </tr>
+    <tr>
+      <td height="55" align="center" class="NText">2020070131</td>
+      <td align="center" class="NText">林元硕</td>
+      <td align="center" valign="middle" class="NText">师承</td>
+      <td align="center" valign="middle"><span class="NText">J120805126</span></td>
+      <td align="center" valign="middle"><span class="NText">正达专业推拿馆</span></td>
+      <td align="center" valign="middle"><span class="NText">缺考</span></td>
+    </tr>
+    </tbody>
+  </table>
+  <table width="800" border="0" align="center" cellpadding="0" cellspacing="0" class="common" style="border:none">
+    <tbody>
+    <tr>
+      <td align="right" valign="bottom" class="FText" style="border:none;text-align:right;font-size:24px;"><img
+              src="./files/blank.gif" height="30"></td>
+    </tr>
+    <tr>
+      <td height="100" align="right" valign="bottom" class="FText" style="border:none;text-align:right;font-size:24px;">
+        <img src="./files/scz.png" width="280" height="153"></td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<p style="page-break-after:always">&nbsp;</p>
+
+<!--endprint-->
+<!--endprint-->
+<script language="javascript" type="text/javascript">
+  function CheckIsInstall() {
+    try {
+      var LODOP = getLodop(document.getElementById('LODOP_OB'), document.getElementById('LODOP_EM'));
+      if ((LODOP != null) && (typeof (LODOP.VERSION) != "undefined")) alert("本机已成功安装过Lodop控件!\n  版本号:" + LODOP.VERSION);
+    } catch (err) {
+      //alert("Error:本机未安装或需要升级!");
+    }
+  };
+</script>
+
+<script language="javascript" type="text/javascript">
+  var LODOP; //声明为全局变量
+  //设定打印机
+  function CreatePrinterList() {
+    if (document.getElementById('PrinterList').innerHTML != "") return;
+    LODOP = getLodop(document.getElementById('LODOP_OB'), document.getElementById('LODOP_EM'));
+    var iPrinterCount = LODOP.GET_PRINTER_COUNT();
+    for (var i = 0; i < iPrinterCount; i++) {
+
+      var option = document.createElement('option');
+      option.innerHTML = LODOP.GET_PRINTER_NAME(i);
+      option.value = i;
+      document.getElementById('PrinterList').appendChild(option);
+    }
+    ;
+  };
+
+  //直接打印
+  function prn1_preview() {
+    LODOP = getLodop(document.getElementById('LODOP_OB'), document.getElementById('LODOP_EM'));
+    var strStyleCSS = "<link href='/css/masterform.css' type='text/css' rel='stylesheet'>";
+    var strFormHtml1 = strStyleCSS + "<body style='margin:0px;'>" + document.getElementById("div1").innerHTML + "</body>";
+    //var strFormHtml2=strStyleCSS+"<body style='margin:0px;'>"+document.getElementById("div2").innerHTML+"</body>";
+    LODOP.PRINT_INIT("师承出师考核报名系统成绩单");
+    LODOP.SET_PRINT_PAGESIZE(2, 0, 0, "A4");
+    LODOP.ADD_PRINT_HTM(20, 0, "100%", "100%", strFormHtml1);
+    LODOP.PREVIEW();
+    //LODOP.PRINT();
+  };
+
+</script>
+
+<div id="httpSpyContainer_sq27T8VFex4CtQ623afyMoiYA89kG6UZ" class="bottomRight noMargin noToolbar"></div>
+</body>
+</html>
