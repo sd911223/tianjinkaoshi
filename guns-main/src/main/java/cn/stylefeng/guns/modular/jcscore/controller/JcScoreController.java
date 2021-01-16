@@ -56,6 +56,7 @@ public class JcScoreController {
      * @author shiTou
      * @date 2021/01/12 22:59
      */
+    @ApiOperation("删除基础考试成绩")
     @PostMapping("/jcScore/delete/{id}")
     @BusinessLog(title = "基础考试成绩_删除", opType = LogAnnotionOpTypeEnum.DELETE)
     public ResponseData delete(@PathVariable("id") Long[] id) {

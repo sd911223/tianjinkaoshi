@@ -6,10 +6,10 @@ import cn.stylefeng.guns.core.exception.ServiceException;
 import cn.stylefeng.guns.core.factory.PageFactory;
 import cn.stylefeng.guns.core.pojo.page.PageResult;
 import cn.stylefeng.guns.modular.scsign.entity.ScSign;
+import cn.stylefeng.guns.modular.scsign.enums.ScSignExceptionEnum;
 import cn.stylefeng.guns.modular.scsign.mapper.ScSignMapper;
 import cn.stylefeng.guns.modular.scsign.model.param.ScSignParam;
 import cn.stylefeng.guns.modular.scsign.service.ScSignService;
-import cn.stylefeng.guns.modular.scsign.enums.ScSignExceptionEnum;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -31,6 +31,35 @@ public class ScSignServiceImpl extends ServiceImpl<ScSignMapper, ScSign> impleme
 
         // 构造条件
         LambdaQueryWrapper<ScSign> queryWrapper = new LambdaQueryWrapper<>();
+        //姓名
+        if (!scSignParam.getName().equals("")) {
+            queryWrapper.eq(ScSign::getName, scSignParam.getName());
+        }
+        //身份证
+        if (!scSignParam.getIdCard().equals("")) {
+            queryWrapper.eq(ScSign::getIdCard, scSignParam.getIdCard());
+        }
+        //工作单位
+        if (!scSignParam.getWorkUnit().equals("")) {
+            queryWrapper.eq(ScSign::getWorkUnit, scSignParam.getWorkUnit());
+        }
+
+        //笔试
+        if (!scSignParam.getWrittenPay().equals("")) {
+            queryWrapper.eq(ScSign::getWrittenPay, scSignParam.getWrittenPay());
+        }
+        //技能
+        if (!scSignParam.getSkillPay().equals("")) {
+            queryWrapper.eq(ScSign::getSkillPay, scSignParam.getSkillPay());
+        }
+        //审核
+        if (!scSignParam.getIsPass().equals("")) {
+            queryWrapper.eq(ScSign::getIsPass, scSignParam.getIsPass());
+        }
+        //资料
+        if (!scSignParam.getIsDataStatus().equals("")) {
+            queryWrapper.eq(ScSign::getIsDataStatus, scSignParam.getIsDataStatus());
+        }
 
         // 查询分页结果
         return new PageResult<>(this.page(PageFactory.defaultPage(), queryWrapper));
@@ -77,7 +106,6 @@ public class ScSignServiceImpl extends ServiceImpl<ScSignMapper, ScSign> impleme
     public ScSign detail(ScSignParam scSignParam) {
         return this.queryScSign(scSignParam);
     }
-
 
 
     /**

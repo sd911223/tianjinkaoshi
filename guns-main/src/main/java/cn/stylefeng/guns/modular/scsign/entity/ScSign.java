@@ -277,6 +277,13 @@ public class ScSign extends BaseEntity {
      */
     @TableField("skill_pay")
     private String skillPay;
+
+    /**
+     * 资料提交(0 未提交 1 已提交)
+     */
+    @TableField("is_data_status")
+    private String isDataStatus;
+
     /**
      * 发布时间
      */

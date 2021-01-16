@@ -79,8 +79,9 @@ public class JnAdmissionController {
     @Permission
     @GetMapping("/jnAdmission/export/{id}")
     @BusinessLog(title = "考试成绩_导出", opType = LogAnnotionOpTypeEnum.EXPORT)
-    public void export(@PathVariable(value = "id", required = false) Long[] id) {
+    public ResponseData export(@PathVariable(value = "id", required = false) Long[] id) {
         jnAdmissionService.export(id);
+        return new SuccessResponseData();
     }
 
 
@@ -94,9 +95,10 @@ public class JnAdmissionController {
     @Permission
     @PostMapping("/jnAdmission/import")
     @BusinessLog(title = "考试成绩_导入", opType = LogAnnotionOpTypeEnum.IMPORT)
-    public void importExcel(@RequestParam("file") MultipartFile file) {
+    public ResponseData importExcel(@RequestParam("file") MultipartFile file) {
 
         jnAdmissionService.importExcel(file);
+        return new SuccessResponseData();
     }
 
     /**

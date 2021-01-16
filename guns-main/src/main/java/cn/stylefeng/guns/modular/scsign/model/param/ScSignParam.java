@@ -318,6 +318,11 @@ public class ScSignParam extends BaseParam {
     @NotNull(message = "笔试缴费不能为空", groups = {add.class, edit.class})
     private String writtenPay;
     /**
+     * 资料提交
+     */
+    @ApiModelProperty("资料提交(0 未提交 1 已提交)")
+    private String isDataStatus;
+    /**
      * 发布时间
      */
     @ApiModelProperty("发布时间")
