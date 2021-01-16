@@ -1,5 +1,6 @@
 package cn.stylefeng.guns.modular.jcscore.entity;
 
+import cn.afterturn.easypoi.excel.annotation.Excel;
 import cn.stylefeng.guns.core.pojo.base.entity.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
@@ -27,24 +28,28 @@ public class JcScore extends BaseEntity {
     /**
      * 身份证号
      */
+    @Excel(name = "身份证号")
     @TableField("id_card")
     private String idCard;
 
     /**
      * 准考证
      */
+    @Excel(name = "准考证")
     @TableField("admission_number")
     private String admissionNumber;
 
     /**
      * 分数
      */
+    @Excel(name = "分数")
     @TableField("fraction")
     private String fraction;
 
     /**
      * 状态
      */
+    @Excel(name = "状态")
     @TableField("score_status")
     private String scoreStatus;
 

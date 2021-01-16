@@ -86,14 +86,14 @@ public class ScAdmissionServiceImpl extends ServiceImpl<ScAdmissionMapper, ScAdm
     }
 
     @Override
-    public void export(Integer[] id, ScAdmissionTypeEnum scAdmissionTypeEnum) {
+    public void export(Long[] id, ScAdmissionTypeEnum scAdmissionTypeEnum) {
         if (id == null) {
             ScAdmissionParam scoreParam = new ScAdmissionParam();
             scoreParam.setExamType(scAdmissionTypeEnum.getCode());
             List<ScAdmission> list = this.list(scoreParam);
             PoiUtil.exportExcelWithStream("ScAdmissionAndSkill.xls", ScAdmission.class, list);
         } else {
-            List<Integer> list = Arrays.asList(id);
+            List<Long> list = Arrays.asList(id);
             List<ScAdmission> scoreList = this.listByIds(list);
             PoiUtil.exportExcelWithStream("ScAdmissionAndSkill.xls", ScAdmission.class, scoreList);
         }

@@ -17,6 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * 基础考试成绩 控制器
@@ -47,6 +49,25 @@ public class JcScoreController {
         JcScoreParam jcScoreParam = new JcScoreParam();
         return new SuccessResponseData(jcScoreService.page(jcScoreParam));
     }
+
+    /**
+     * 删除基础考试成绩
+     *
+     * @author shiTou
+     * @date 2021/01/12 22:59
+     */
+    @PostMapping("/jcScore/delete/{id}")
+    @BusinessLog(title = "基础考试成绩_删除", opType = LogAnnotionOpTypeEnum.DELETE)
+    public ResponseData delete(@PathVariable("id") Long[] id) {
+        List<Long> list = Arrays.asList(id);
+        list.forEach(e -> {
+            JcScoreParam jcScoreParam = new JcScoreParam();
+            jcScoreParam.setId(e);
+            jcScoreService.delete(jcScoreParam);
+        });
+        return new SuccessResponseData();
+    }
+
     /**
      * 导出考试成绩
      *
@@ -130,18 +151,6 @@ public class JcScoreController {
         return new SuccessResponseData();
     }
 
-    /**
-     * 删除基础考试成绩
-     *
-     * @author shiTou
-     * @date 2021/01/12 22:59
-     */
-    @PostMapping("/jcScore/delete")
-    @BusinessLog(title = "基础考试成绩_删除", opType = LogAnnotionOpTypeEnum.DELETE)
-    public ResponseData delete(@RequestBody @Validated(JcScoreParam.delete.class) JcScoreParam jcScoreParam) {
-        jcScoreService.delete(jcScoreParam);
-        return new SuccessResponseData();
-    }
 
     /**
      * 编辑基础考试成绩

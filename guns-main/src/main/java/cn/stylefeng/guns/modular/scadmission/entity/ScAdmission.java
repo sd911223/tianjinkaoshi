@@ -5,6 +5,7 @@ import cn.stylefeng.guns.core.pojo.base.entity.BaseEntity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -44,14 +45,14 @@ public class ScAdmission extends BaseEntity {
     /**
      * 考试时间
      */
-    @Excel(name = "考试时间")
+    @Excel(name = "考试时间",databaseFormat = "yyyy-MM-dd HH:mm:ss", format = "yyyy-MM-dd HH:mm:ss")
     @TableField("exam_time")
     private Date examTime;
 
     /**
      * 签到时间
      */
-    @Excel(name = "签到时间")
+    @Excel(name = "签到时间",databaseFormat = "HH:mm", format = "HH:mm")
     @TableField("sign_time")
     private String signTime;
 

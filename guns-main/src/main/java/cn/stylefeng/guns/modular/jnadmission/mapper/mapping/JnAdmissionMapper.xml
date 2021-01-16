@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.stylefeng.guns.modular.jnadmission.mapper.JnAdmissionMapper">
+
+    <!-- 开启二级缓存 -->
+<!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.jnadmission.entity.JnAdmission">
+		<id column="id" property="id" />
+		<result column="id_card" property="idCard" />
+		<result column="examination_name" property="examinationName" />
+		<result column="examination_number" property="examinationNumber" />
+		<result column="admission_number" property="admissionNumber" />
+		<result column="seat_number" property="seatNumber" />
+		<result column="exam_address" property="examAddress" />
+		<result column="exam_time" property="examTime" />
+		<result column="examination_name_tow" property="examinationNameTow" />
+		<result column="admission_number_tow" property="admissionNumberTow" />
+		<result column="examination_number_tow" property="examinationNumberTow" />
+		<result column="seat_number_tow" property="seatNumberTow" />
+		<result column="exam_address_tow" property="examAddressTow" />
+		<result column="exam_time_tow" property="examTimeTow" />
+		<result column="create_time" property="createTime" />
+		<result column="update_time" property="updateTime" />
+		<result column="create_user" property="createUser" />
+		<result column="update_user" property="updateUser" />
+	</resultMap>
+
+</mapper>

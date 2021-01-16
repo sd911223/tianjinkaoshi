@@ -83,7 +83,7 @@ public class ScAdmissionController {
     @Permission
     @GetMapping("/scAdmission/export/{id}")
     @BusinessLog(title = "考试成绩_导出", opType = LogAnnotionOpTypeEnum.EXPORT)
-    public void export(@PathVariable(value = "id", required = false) Integer[] id,
+    public void export(@PathVariable(value = "id", required = false) Long[] id,
                        ScAdmissionTypeEnum scAdmissionTypeEnum) {
 
         scAdmissionService.export(id, scAdmissionTypeEnum);

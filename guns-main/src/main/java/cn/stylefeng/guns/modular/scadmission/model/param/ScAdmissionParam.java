@@ -39,7 +39,7 @@ public class ScAdmissionParam extends BaseParam {
      * 考试时间
      */
     @NotNull(message = "考试时间不能为空", groups = {add.class, edit.class})
-    private Date examTime;
+    private String examTime;
 
     /**
      * 签到时间

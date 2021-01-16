@@ -55,17 +55,17 @@ public class ExamSignParam extends BaseParam {
     /**
      * 资料审核
      */
-    @ApiModelProperty("资料审核")
-    @Excel(name = "资料审核")
-    @NotNull(message = "资料审核不能为空",groups = {add.class,edit.class})
+//    @ApiModelProperty("资料审核")
+//    @Excel(name = "资料审核")
+//    @NotNull(message = "资料审核不能为空",groups = {add.class,edit.class})
     private String dataReview;
 
     /**
      * 资料状态
      */
-    @ApiModelProperty("资料状态")
-    @Excel(name = "资料状态")
-    @NotNull(message = "资料状态不能为空",groups = {add.class,edit.class})
+//    @ApiModelProperty("资料状态")
+//    @Excel(name = "资料状态")
+//    @NotNull(message = "资料状态不能为空",groups = {add.class,edit.class})
     private String dataStatus;
 
     /**

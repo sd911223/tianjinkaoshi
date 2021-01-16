@@ -65,7 +65,7 @@ public interface ScAdmissionService extends IService<ScAdmission> {
      */
     ScAdmission detail(ScAdmissionParam scAdmissionParam);
 
-    void export(Integer[] id, ScAdmissionTypeEnum scAdmissionTypeEnum);
+    void export(Long[] id, ScAdmissionTypeEnum scAdmissionTypeEnum);
 
     void importExcel(MultipartFile file, ScAdmissionTypeEnum scAdmissionTypeEnum);
 }

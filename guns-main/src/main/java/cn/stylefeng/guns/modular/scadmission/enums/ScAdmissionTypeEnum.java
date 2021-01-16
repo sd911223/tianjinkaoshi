@@ -19,7 +19,7 @@ public enum ScAdmissionTypeEnum {
     /**
      * 综合笔试准考证信息管理
      */
-    WRITTEN_ADMISSION("SKILL_ADMISSION", "综合笔试准考证信息管理");
+    WRITTEN_ADMISSION("WRITTEN_ADMISSION", "综合笔试准考证信息管理");
 
     private final String code;
 

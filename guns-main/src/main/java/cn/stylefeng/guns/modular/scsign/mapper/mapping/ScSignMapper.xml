@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.stylefeng.guns.modular.scsign.mapper.ScSignMapper">
+
+    <!-- 开启二级缓存 -->
+    <!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.stylefeng.guns.modular.scsign.entity.ScSign">
+        <id column="id" property="id"/>
+        <result column="exam_id" property="examId"/>
+        <result column="avatar_img" property="avatarImg"/>
+        <result column="name" property="name"/>
+        <result column="id_card" property="idCard"/>
+        <result column="sex" property="sex"/>
+        <result column="domicile" property="domicile"/>
+        <result column="political_status" property="politicalStatus"/>
+        <result column="health_status" property="healthStatus"/>
+        <result column="ethnic" property="ethnic"/>
+        <result column="birthplace" property="birthplace"/>
+        <result column="marriage_status" property="marriageStatus"/>
+        <result column="contact_address" property="contactAddress"/>
+        <result column="height" property="height"/>
+        <result column="born_time" property="bornTime"/>
+        <result column="vision" property="vision"/>
+        <result column="postcode" property="postcode"/>
+        <result column="phone" property="phone"/>
+        <result column="landline" property="landline"/>
+        <result column="mailbox" property="mailbox"/>
+        <result column="graduation_school" property="graduationSchool"/>
+        <result column="vocational" property="vocational"/>
+        <result column="graduation_time" property="graduationTime"/>
+        <result column="foreign_fraction" property="foreignFraction"/>
+        <result column="education" property="education"/>
+        <result column="degree" property="degree"/>
+        <result column="school_system" property="schoolSystem"/>
+        <result column="learn_type" property="learnType"/>
+        <result column="computer" property="computer"/>
+        <result column="is_profession_qualifications" property="isProfessionQualifications"/>
+        <result column="work_unit" property="workUnit"/>
+        <result column="join_work_time" property="joinWorkTime"/>
+        <result column="job_title" property="jobTitle"/>
+        <result column="work_experience" property="workExperience"/>
+        <result column="learning_resume" property="learningResume"/>
+        <result column="certificate_info" property="certificateInfo"/>
+        <result column="work_resume" property="workResume"/>
+        <result column="advertise_job_offers" property="advertiseJobOffers"/>
+        <result column="is_pass" property="isPass"/>
+        <result column="reject_reason" property="rejectReason"/>
+        <result column="interview_pay" property="interviewPay"/>
+        <result column="written_pay" property="writtenPay"/>
+        <result column="skill_pay" property="skillPay"/>
+        <result column="release_time" property="releaseTime"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="create_user" property="createUser"/>
+        <result column="update_user" property="updateUser"/>
+    </resultMap>
+
+</mapper>

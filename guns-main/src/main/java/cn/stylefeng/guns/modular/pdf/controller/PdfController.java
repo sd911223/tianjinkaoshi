@@ -40,20 +40,61 @@ public class PdfController {
     @RequestMapping(value = "/pdf/preview", method = RequestMethod.GET)
     public void preview(HttpServletRequest request, HttpServletResponse response,
                         @RequestParam("id") Long id,
-                        PdfTypeEnum pdfTypeEnum, CertificateTypeEnum certificateTypeEnum) {
+                        PdfTypeEnum pdfTypeEnum,
+                        CertificateTypeEnum certificateTypeEnum) {
+
+        getPdfInfo(id, pdfTypeEnum, certificateTypeEnum, response);
+    }
+
+    /**
+     * pdf下载
+     *
+     * @param request  HttpServletRequest
+     * @param response HttpServletResponse
+     */
+    @ApiOperation("pdf下载")
+    @RequestMapping(value = "/pdf/download", method = RequestMethod.GET)
+    public void download(HttpServletRequest request, HttpServletResponse response,
+                         @RequestParam("id") Long id,
+                         PdfTypeEnum pdfTypeEnum,
+                         CertificateTypeEnum certificateTypeEnum) {
+        getPdfInfo(id, pdfTypeEnum, certificateTypeEnum, response);
+
+    }
+
+    /**
+     *
+     * @param id
+     * @param pdfTypeEnum
+     * @param certificateTypeEnum
+     * @param response
+     */
+    private void getPdfInfo(Long id,
+                            PdfTypeEnum pdfTypeEnum,
+                            CertificateTypeEnum certificateTypeEnum,
+                            HttpServletResponse response) {
         // 构造freemarker模板引擎参数,listVars.size()个数对应pdf页数
         List<Map<String, Object>> listVars = new ArrayList<>();
         Map<String, Object> variables = new HashMap<>();
-        if (pdfTypeEnum.getCode().equals(PdfTypeEnum.GAO_JI)) {
+        if (pdfTypeEnum.getCode().equals(PdfTypeEnum.GAO_JI.getCode())) {
             ExamSignParam examSignParam = new ExamSignParam();
             examSignParam.setId(id);
             ExamSign examSign = examSignService.detail(examSignParam);
             variables.put("data", examSign);
             listVars.add(variables);
-            if (certificateTypeEnum.getCode().equals(CertificateTypeEnum.ADMISSION_TICKET)) {
-
+            //准考证
+            if (certificateTypeEnum.getCode().equals(CertificateTypeEnum.ADMISSION_TICKET.getCode())) {
+                PdfUtils.preview(configurer, "/gj/z_k_z.ftl", listVars, response);
             }
-            PdfUtils.preview(configurer, "/gj/pdfPage.ftl", listVars, response);
+            //成绩单
+            if (certificateTypeEnum.getCode().equals(CertificateTypeEnum.TRANSCRIPT.getCode())) {
+                PdfUtils.preview(configurer, "/gj/c_j_d.ftl", listVars, response);
+            }
+            //报名表
+            if (certificateTypeEnum.getCode().equals(CertificateTypeEnum.ADMISSION_TICKET.getCode())) {
+                PdfUtils.preview(configurer, "/gj/b_m_b.ftl", listVars, response);
+            }
+
         }
         if (pdfTypeEnum.getCode().equals(PdfTypeEnum.Z_P)) {
             variables.put("title", "测试预览ASGX!");
@@ -78,24 +119,6 @@ public class PdfController {
         if (pdfTypeEnum.getCode().equals(PdfTypeEnum.ZHUAN_YE)) {
 
         }
-
-
-    }
-
-    /**
-     * pdf下载
-     *
-     * @param request  HttpServletRequest
-     * @param response HttpServletResponse
-     */
-    @ApiOperation("pdf下载")
-    @RequestMapping(value = "/pdf/download", method = RequestMethod.GET)
-    public void download(HttpServletRequest request, HttpServletResponse response) {
-        List<Map<String, Object>> listVars = new ArrayList<>();
-        Map<String, Object> variables = new HashMap<>();
-        variables.put("title", "测试下载ASGX!");
-        listVars.add(variables);
-        PdfUtils.download(configurer, "pdfPage.ftl", listVars, response, "测试中文.pdf");
     }
 
 }

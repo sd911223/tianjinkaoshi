@@ -41,6 +41,6 @@ public class ScScore extends BaseEntity {
     /**
      * 类型(SKILL_ADMISSION:技能准考证信息管理   SKILL_ADMISSION:综合笔试准考证信息管理)
      */
-    @TableField("exam_result")
+    @TableField("exam_type")
     private String examType;
 }

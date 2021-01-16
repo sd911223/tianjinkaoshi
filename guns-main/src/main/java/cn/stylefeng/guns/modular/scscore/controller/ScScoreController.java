@@ -59,6 +59,7 @@ public class ScScoreController {
      * @author ShiTou
      * @date 2021/01/12 23:45
      */
+    @ApiOperation("删除综合笔试成绩/技能成绩管理")
     @PostMapping("/scScore/delete")
     @BusinessLog(title = "综合笔试成绩/技能成绩管理_删除", opType = LogAnnotionOpTypeEnum.DELETE)
     public ResponseData delete(@PathVariable("id") Long[] id) {

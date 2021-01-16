@@ -48,7 +48,7 @@ public class ExamController {
         ExamParam examParam = new ExamParam();
         PageResult<Exam> page = examService.page(examParam);
         List<Exam> list = page.getRows();
-//        getListExam(list);
+        getListExam(list);
         return new SuccessResponseData(page);
     }
 
