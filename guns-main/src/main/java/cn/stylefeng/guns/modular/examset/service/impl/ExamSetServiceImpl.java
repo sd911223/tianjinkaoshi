@@ -6,10 +6,10 @@ import cn.stylefeng.guns.core.exception.ServiceException;
 import cn.stylefeng.guns.core.factory.PageFactory;
 import cn.stylefeng.guns.core.pojo.page.PageResult;
 import cn.stylefeng.guns.modular.examset.entity.ExamSet;
+import cn.stylefeng.guns.modular.examset.enums.ExamSetExceptionEnum;
 import cn.stylefeng.guns.modular.examset.mapper.ExamSetMapper;
 import cn.stylefeng.guns.modular.examset.model.param.ExamSetParam;
 import cn.stylefeng.guns.modular.examset.service.ExamSetService;
-import cn.stylefeng.guns.modular.examset.enums.ExamSetExceptionEnum;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -75,9 +75,12 @@ public class ExamSetServiceImpl extends ServiceImpl<ExamSetMapper, ExamSet> impl
 
     @Override
     public ExamSet detail(ExamSetParam examSetParam) {
-        return this.queryExamSet(examSetParam);
-    }
 
+        // 构造条件
+        LambdaQueryWrapper<ExamSet> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(ExamSet::getExamId, examSetParam.getExamId());
+        return this.getOne(queryWrapper);
+    }
 
 
     /**

@@ -7,10 +7,7 @@ import cn.stylefeng.guns.core.pojo.response.SuccessResponseData;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import cn.stylefeng.guns.modular.jnset.service.JnSetService;
 import cn.stylefeng.guns.modular.jnset.model.param.JnSetParam;
 
@@ -59,9 +56,12 @@ public class JnSetController {
      * @author ShiTou
      * @date 2021/01/13 14:15
      */
-    @GetMapping("/jnSet/detail")
+    @ApiOperation("查看详情技能设置")
+    @GetMapping("/jnSet/detail/{examId}")
     @BusinessLog(title = "技能设置_查看详情", opType = LogAnnotionOpTypeEnum.DETAIL)
-    public ResponseData detail(@Validated(JnSetParam.detail.class) JnSetParam jnSetParam) {
+    public ResponseData detail(@PathVariable("examId") Long examId) {
+        JnSetParam jnSetParam =new  JnSetParam();
+        jnSetParam.setExamId(examId);
         return new SuccessResponseData(jnSetService.detail(jnSetParam));
     }
 
@@ -98,6 +98,7 @@ public class JnSetController {
      * @author ShiTou
      * @date 2021/01/13 14:15
      */
+    @ApiOperation("编辑技能设置")
     @PostMapping("/jnSet/edit")
     @BusinessLog(title = "技能设置_编辑", opType = LogAnnotionOpTypeEnum.EDIT)
     public ResponseData edit(@RequestBody @Validated(JnSetParam.edit.class) JnSetParam jnSetParam) {

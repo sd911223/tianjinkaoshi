@@ -6,18 +6,22 @@ import cn.stylefeng.guns.core.pojo.page.PageResult;
 import cn.stylefeng.guns.core.pojo.response.ResponseData;
 import cn.stylefeng.guns.core.pojo.response.SuccessResponseData;
 import cn.stylefeng.guns.modular.exam.entity.Exam;
+import cn.stylefeng.guns.modular.exam.entity.ExamExpand;
 import cn.stylefeng.guns.modular.exam.enums.ExamStatusEnum;
 import cn.stylefeng.guns.modular.exam.model.param.ExamParam;
 import cn.stylefeng.guns.modular.exam.service.ExamService;
 import cn.stylefeng.guns.sys.modular.dict.entity.SysDictData;
 import cn.stylefeng.guns.sys.modular.dict.param.SysDictDataParam;
 import cn.stylefeng.guns.sys.modular.dict.service.SysDictDataService;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.BeanUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -48,8 +52,13 @@ public class ExamController {
         ExamParam examParam = new ExamParam();
         PageResult<Exam> page = examService.page(examParam);
         List<Exam> list = page.getRows();
-        getListExam(list);
-        return new SuccessResponseData(page);
+        List<ExamExpand> listExam = getListExam(list);
+        PageResult<ExamExpand> examExpandPage= new PageResult<ExamExpand>();
+        examExpandPage.setRows(listExam);
+        examExpandPage.setPageNo(page.getPageNo());
+        examExpandPage.setPageSize(page.getPageSize());
+        examExpandPage.setTotalPage(page.getTotalPage());
+        return new SuccessResponseData(examExpandPage);
     }
 
     /**
@@ -77,11 +86,13 @@ public class ExamController {
     @BusinessLog(title = "tj_exam_查看详情", opType = LogAnnotionOpTypeEnum.DETAIL)
     public ResponseData detail(@Validated(ExamParam.detail.class) ExamParam examParam) {
         Exam detail = examService.detail(examParam);
+        ExamExpand examExpand = new ExamExpand();
+        BeanUtils.copyProperties(detail,examExpand);
         SysDictDataParam sysDictDataParam = new SysDictDataParam();
         sysDictDataParam.setId(Long.valueOf(detail.getExamType()));
         SysDictData dictData = sysDictDataService.detail(sysDictDataParam);
-        detail.setExamType(dictData.getValue());
-        detail.setExamStatus(ExamStatusEnum.valueOf(detail.getExamStatus()).getMessage());
+        examExpand.setExamTypeName(dictData.getValue());
+        examExpand.setExamStatusName(ExamStatusEnum.valueOf(detail.getExamStatus()).getMessage());
         return new SuccessResponseData(detail);
     }
 
@@ -141,18 +152,22 @@ public class ExamController {
         return new SuccessResponseData();
     }
 
-    private void getListExam(List<Exam> list) {
+    private List<ExamExpand> getListExam(List<Exam> list) {
+        List<ExamExpand> examExpandList = new ArrayList<ExamExpand>();
         if (!list.isEmpty()) {
+
             list.stream().filter(a -> a.getExamType() != null).forEach(e -> {
+                ExamExpand examExpand = new ExamExpand();
+                BeanUtils.copyProperties(e, examExpand);
                 SysDictDataParam sysDictDataParam = new SysDictDataParam();
                 sysDictDataParam.setId(Long.valueOf(e.getExamType()));
                 SysDictData dictData = sysDictDataService.detail(sysDictDataParam);
-                e.setExamType(dictData.getValue());
-            });
-            list.stream().filter(a -> a.getExamStatus() != null).forEach(e -> {
-                e.setExamStatus(ExamStatusEnum.valueOf(e.getExamStatus()).getMessage());
+                examExpand.setExamTypeName(dictData.getValue());
+                examExpand.setExamStatusName(ExamStatusEnum.valueOf(e.getExamStatus()).getMessage());
+                examExpandList.add(examExpand);
             });
         }
+        return examExpandList;
     }
 
 }

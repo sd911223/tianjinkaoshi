@@ -9,10 +9,7 @@ import cn.stylefeng.guns.modular.examset.service.ExamSetService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -59,9 +56,12 @@ public class ExamSetController {
      * @author shiTou
      * @date 2021/01/12 22:20
      */
-    @GetMapping("/examSet/detail")
+    @ApiOperation("查看详情考试设置")
+    @GetMapping("/examSet/detail/{examId}")
     @BusinessLog(title = "考试设置_查看详情", opType = LogAnnotionOpTypeEnum.DETAIL)
-    public ResponseData detail(@Validated(ExamSetParam.class) ExamSetParam examSetParam) {
+    public ResponseData detail(@PathVariable("examId") Long examId) {
+        ExamSetParam examSetParam = new ExamSetParam();
+        examSetParam.setExamId(examId);
         return new SuccessResponseData(examSetService.detail(examSetParam));
     }
 
@@ -98,6 +98,7 @@ public class ExamSetController {
      * @author shiTou
      * @date 2021/01/12 22:20
      */
+    @ApiOperation("编辑考试设置")
     @PostMapping("/examSet/edit")
     @BusinessLog(title = "考试设置_编辑", opType = LogAnnotionOpTypeEnum.EDIT)
     public ResponseData edit(@RequestBody @Validated(ExamSetParam.class) ExamSetParam examSetParam) {

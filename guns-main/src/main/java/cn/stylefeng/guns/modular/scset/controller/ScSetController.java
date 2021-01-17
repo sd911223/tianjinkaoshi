@@ -9,10 +9,7 @@ import cn.stylefeng.guns.modular.scset.service.ScSetService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -59,9 +56,12 @@ public class ScSetController {
      * @author ShiTou
      * @date 2021/01/13 04:10
      */
-    @GetMapping("/scSet/detail")
+    @ApiOperation("查看详情师承设置")
+    @GetMapping("/scSet/detail/{examId}")
     @BusinessLog(title = "师承设置_查看详情", opType = LogAnnotionOpTypeEnum.DETAIL)
-    public ResponseData detail(@Validated(ScSetParam.detail.class) ScSetParam scSetParam) {
+    public ResponseData detail(@PathVariable("examId") Long examId) {
+        ScSetParam scSetParam = new ScSetParam();
+        scSetParam.setExamId(examId);
         return new SuccessResponseData(scSetService.detail(scSetParam));
     }
 
@@ -98,6 +98,7 @@ public class ScSetController {
      * @author ShiTou
      * @date 2021/01/13 04:10
      */
+    @ApiOperation("编辑师承设置")
     @PostMapping("/scSet/edit")
     @BusinessLog(title = "师承设置_编辑", opType = LogAnnotionOpTypeEnum.EDIT)
     public ResponseData edit(@RequestBody @Validated(ScSetParam.edit.class) ScSetParam scSetParam) {

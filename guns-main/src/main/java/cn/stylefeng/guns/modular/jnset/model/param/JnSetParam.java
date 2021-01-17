@@ -23,7 +23,6 @@ public class JnSetParam extends BaseParam {
      * 主键ID
      */
     @ApiModelProperty("主键ID")
-    @NotNull(message = "主键ID不能为空", groups = {edit.class})
     private Long id;
 
     /**

@@ -6,7 +6,7 @@ server:
 #spring相关配置
 spring:
   profiles:
-    active: @spring.active@
+    active: local
   servlet:
     multipart:
       max-request-size: 100MB

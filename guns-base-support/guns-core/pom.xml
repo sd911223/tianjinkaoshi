@@ -17,20 +17,42 @@
 
     <dependencies>
 
-        <!-- freemarker依赖 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-freemarker</artifactId>
-        </dependency>
+<!--        &lt;!&ndash; freemarker依赖 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-freemarker</artifactId>-->
+<!--        </dependency>-->
 
-        <!-- FlyingSaucer依赖
-        https://mvnrepository.com/artifact/org.xhtmlrenderer/flying-saucer-pdf -->
+<!--        &lt;!&ndash; FlyingSaucer依赖-->
+<!--        https://mvnrepository.com/artifact/org.xhtmlrenderer/flying-saucer-pdf &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.xhtmlrenderer</groupId>-->
+<!--            <artifactId>flying-saucer-pdf</artifactId>-->
+<!--            <version>9.1.12</version>-->
+<!--        </dependency>-->
+        <!-- freemarker,生成 html -->
+        <dependency>
+            <groupId>org.freemarker</groupId>
+            <artifactId>freemarker</artifactId>
+            <version>2.3.30</version>
+        </dependency>
+        <!-- 渲染 css 样式 -->
         <dependency>
             <groupId>org.xhtmlrenderer</groupId>
             <artifactId>flying-saucer-pdf</artifactId>
-            <version>9.1.12</version>
+            <version>9.1.20</version>
         </dependency>
-
+        <!-- 支持中文 -->
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>itext-asian</artifactId>
+            <version>5.2.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.itextpdf.tool</groupId>
+            <artifactId>xmlworker</artifactId>
+            <version>5.5.1</version>
+        </dependency>
         <!-- validation -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

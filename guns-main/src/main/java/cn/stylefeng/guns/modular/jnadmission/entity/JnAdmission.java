@@ -114,6 +114,6 @@ public class JnAdmission extends BaseEntity {
      */
     @Excel(name = "考试时间二",databaseFormat = "yyyy-MM-dd HH:mm:ss", format = "yyyy-MM-dd HH:mm:ss")
     @TableField("exam_time_tow")
-    private String examTimeTow;
+    private Date examTimeTow;
 
 }

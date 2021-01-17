@@ -59,7 +59,7 @@ public class JcScoreController {
     @ApiOperation("删除基础考试成绩")
     @PostMapping("/jcScore/delete/{id}")
     @BusinessLog(title = "基础考试成绩_删除", opType = LogAnnotionOpTypeEnum.DELETE)
-    public ResponseData delete(@PathVariable("id") Long[] id) {
+    public ResponseData delete(@PathVariable(value = "id",required = false) Long[] id) {
         List<Long> list = Arrays.asList(id);
         list.forEach(e -> {
             JcScoreParam jcScoreParam = new JcScoreParam();
@@ -76,7 +76,7 @@ public class JcScoreController {
      * @date 2021/01/11 17:27
      */
     @ApiOperation("导出基础考试成绩")
-//    @Permission
+    @Permission
     @GetMapping("/jcScore/export/{id}")
     @BusinessLog(title = "考试成绩_导出", opType = LogAnnotionOpTypeEnum.EXPORT)
     public ResponseData export(@PathVariable(value = "id", required = false) Long[] id) {

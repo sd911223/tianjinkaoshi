@@ -1,0 +1,62 @@
+/*start 学员注册公用部分 */
+.left-menu{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 248px;
+    background-color: #DDF0FF;
+    border-radius: 0 0 10px 10px;
+}
+.left-menu .menu-wrap{
+    margin: 20px 0 0 20px;
+}
+.left-menu .menu-wrap li{
+    height: 62px;
+    line-height: 62px;
+    font-size: 16px;
+    cursor: pointer;
+    background-image:url("../images/left-menu-icons.png");
+    background-position-x: 15px;
+    background-color: #ffffff;
+    background-repeat: no-repeat;
+    border-right: 1px solid #DDF0FF;
+    border-bottom: 1px solid #DDF0FF;
+    padding-left: 60px;
+}
+.left-menu .menu-wrap li:hover{
+    background-color: #DDF0FF;
+}
+.left-menu .menu-wrap li.visited{
+    background-color: #65bbff;
+    border-right: 2px solid #006699;
+    border-bottom: none;
+}
+.left-menu .menu-wrap li.icon1{
+    background-position-y: 0;
+}
+.left-menu .menu-wrap li.icon2{
+    background-position-y: -62px;
+}
+.left-menu .menu-wrap li.icon3{
+    background-position-y: -124px;
+}
+.left-menu .menu-wrap li.icon4{
+    background-position-y: -186px;
+}
+.left-menu .menu-wrap li.icon5{
+    background-position-y: -248px;
+}
+.left-menu .menu-wrap li.icon6{
+    background-position-y: -310px;
+}
+.left-menu .menu-wrap li.icon7{
+    background-position-y: -372px;
+}
+.left-menu .menu-wrap li.icon8{
+    background-position-y: -434px;
+}
+.right-cont{
+    margin-left: 248px;
+    height: 680px;
+}
+/*end 学员注册公用部分 */

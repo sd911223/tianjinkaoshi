@@ -87,12 +87,12 @@ public class JnAdmissionServiceImpl extends ServiceImpl<JnAdmissionMapper, JnAdm
     public void export(Long[] id) {
         if (id == null) {
             JnAdmissionParam jnAdmissionParam = new JnAdmissionParam();
-            List<JnAdmission> list = this.list(jnAdmissionParam);
-            PoiUtil.exportExcelWithStream("JnAdmission.xls", JcScore.class, list);
+            List<JnAdmission> jnAdmissionList = this.list(jnAdmissionParam);
+            PoiUtil.exportExcelWithStream("JnAdmission.xls", JnAdmission.class, jnAdmissionList);
         } else {
             List<Long> list = Arrays.asList(id);
-            List<JnAdmission> scoreList = this.listByIds(list);
-            PoiUtil.exportExcelWithStream("JnAdmission.xls", JcScore.class, scoreList);
+            List<JnAdmission> jnAdmissionList = this.listByIds(list);
+            PoiUtil.exportExcelWithStream("JnAdmission.xls", JnAdmission.class, jnAdmissionList);
         }
     }
 

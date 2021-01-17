@@ -6,10 +6,10 @@ import cn.stylefeng.guns.core.exception.ServiceException;
 import cn.stylefeng.guns.core.factory.PageFactory;
 import cn.stylefeng.guns.core.pojo.page.PageResult;
 import cn.stylefeng.guns.modular.scset.entity.ScSet;
+import cn.stylefeng.guns.modular.scset.enums.ScSetExceptionEnum;
 import cn.stylefeng.guns.modular.scset.mapper.ScSetMapper;
 import cn.stylefeng.guns.modular.scset.model.param.ScSetParam;
 import cn.stylefeng.guns.modular.scset.service.ScSetService;
-import cn.stylefeng.guns.modular.scset.enums.ScSetExceptionEnum;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -75,9 +75,10 @@ public class ScSetServiceImpl extends ServiceImpl<ScSetMapper, ScSet> implements
 
     @Override
     public ScSet detail(ScSetParam scSetParam) {
-        return this.queryScSet(scSetParam);
+        LambdaQueryWrapper<ScSet> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(ScSet::getExamId, scSetParam.getExamId());
+        return this.getOne(queryWrapper);
     }
-
 
 
     /**

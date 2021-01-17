@@ -100,7 +100,7 @@ public class JnAdmissionParam extends BaseParam {
      * 考试时间二
      */
     @NotNull(message = "考试时间二不能为空",groups = {add.class,edit.class})
-    private String examTimeTow;
+    private Date examTimeTow;
 
     /**
      * 创建时间

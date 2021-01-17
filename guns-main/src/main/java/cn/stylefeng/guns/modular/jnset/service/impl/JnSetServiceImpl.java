@@ -6,10 +6,10 @@ import cn.stylefeng.guns.core.exception.ServiceException;
 import cn.stylefeng.guns.core.factory.PageFactory;
 import cn.stylefeng.guns.core.pojo.page.PageResult;
 import cn.stylefeng.guns.modular.jnset.entity.JnSet;
+import cn.stylefeng.guns.modular.jnset.enums.JnSetExceptionEnum;
 import cn.stylefeng.guns.modular.jnset.mapper.JnSetMapper;
 import cn.stylefeng.guns.modular.jnset.model.param.JnSetParam;
 import cn.stylefeng.guns.modular.jnset.service.JnSetService;
-import cn.stylefeng.guns.modular.jnset.enums.JnSetExceptionEnum;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -75,9 +75,11 @@ public class JnSetServiceImpl extends ServiceImpl<JnSetMapper, JnSet> implements
 
     @Override
     public JnSet detail(JnSetParam jnSetParam) {
-        return this.queryJnSet(jnSetParam);
+        // 构造条件
+        LambdaQueryWrapper<JnSet> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(JnSet::getExamId,jnSetParam.getExamId());
+        return this.getOne(queryWrapper);
     }
-
 
 
     /**
