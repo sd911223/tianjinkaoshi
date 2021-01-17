@@ -55,7 +55,6 @@ public interface SpringSecurityConstant {
             "/logout",
             "/pdf/preview",
             "/pdf/download",
-
             //文件的
             "/sysFileInfo/upload",
             "/sysFileInfo/download",

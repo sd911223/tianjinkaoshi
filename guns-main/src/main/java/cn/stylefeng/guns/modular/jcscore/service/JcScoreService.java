@@ -64,7 +64,7 @@ public interface JcScoreService extends IService<JcScore> {
      */
     JcScore detail(JcScoreParam jcScoreParam);
 
-    void export(Integer[] id);
+    void export(Long[] id);
 
     void importExcel(MultipartFile file);
 }

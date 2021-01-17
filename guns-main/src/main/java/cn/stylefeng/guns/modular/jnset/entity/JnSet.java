@@ -1,12 +1,14 @@
 package cn.stylefeng.guns.modular.jnset.entity;
 
 import cn.stylefeng.guns.core.pojo.base.entity.BaseEntity;
-import com.baomidou.mybatisplus.annotation.*;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
 
 /**
  * 技能设置
@@ -36,7 +38,11 @@ public class JnSet extends BaseEntity {
      */
     @TableField("exam_name")
     private String examName;
-
+    /**
+     * 图片ID
+     */
+    @TableField("img_id")
+    private Long imgId;
     /**
      * 对应单位
      */

@@ -86,6 +86,7 @@ public class SysFileInfoController {
      * @author stylefeng, xuyuxiang
      * @date 2020/6/9 22:07
      */
+    @ApiOperation("文件预览")
     @GetMapping("/sysFileInfo/preview")
     public void preview(@Validated(SysFileInfoParam.detail.class) SysFileInfoParam sysFileInfoParam, HttpServletResponse response) {
         sysFileInfoService.preview(sysFileInfoParam, response);

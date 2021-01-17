@@ -91,13 +91,13 @@ public class AdmissionServiceImpl extends ServiceImpl<AdmissionMapper, Admission
     }
 
     @Override
-    public void export(Integer[] id) {
+    public void export(Long[] id) {
         if (id == null) {
             AdmissionParam admissionParam = new AdmissionParam();
             List<Admission> list = this.list(admissionParam);
             PoiUtil.exportExcelWithStream("Admission.xls", Score.class, list);
         } else {
-            List<Integer> list = Arrays.asList(id);
+            List<Long> list = Arrays.asList(id);
             List<Admission> scoreList = this.listByIds(list);
             PoiUtil.exportExcelWithStream("Admission.xls", Score.class, scoreList);
         }

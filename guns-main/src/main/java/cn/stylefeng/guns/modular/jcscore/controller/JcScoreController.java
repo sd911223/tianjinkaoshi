@@ -76,11 +76,12 @@ public class JcScoreController {
      * @date 2021/01/11 17:27
      */
     @ApiOperation("导出基础考试成绩")
-    @Permission
+//    @Permission
     @GetMapping("/jcScore/export/{id}")
     @BusinessLog(title = "考试成绩_导出", opType = LogAnnotionOpTypeEnum.EXPORT)
-    public void export(@PathVariable(value = "id", required = false) Integer[] id) {
+    public ResponseData export(@PathVariable(value = "id", required = false) Long[] id) {
         jcScoreService.export(id);
+        return new SuccessResponseData();
     }
 
 
@@ -94,9 +95,10 @@ public class JcScoreController {
     @Permission
     @PostMapping("/jcScore/import")
     @BusinessLog(title = "考试成绩_导入", opType = LogAnnotionOpTypeEnum.IMPORT)
-    public void importExcel(@RequestParam("file") MultipartFile file) {
+    public ResponseData importExcel(@RequestParam("file") MultipartFile file) {
 
         jcScoreService.importExcel(file);
+        return new SuccessResponseData();
     }
 
     /**
@@ -110,7 +112,7 @@ public class JcScoreController {
     @BusinessLog(title = "文件信息表_下载文件", opType = LogAnnotionOpTypeEnum.OTHER)
     public void download(HttpServletResponse response) {
         SysFileInfoParam sysFileInfoParam = new SysFileInfoParam();
-        sysFileInfoParam.setId(1348595505906503681L);
+        sysFileInfoParam.setId(1350443722625720322L);
         sysFileInfoService.download(sysFileInfoParam, response);
     }
 

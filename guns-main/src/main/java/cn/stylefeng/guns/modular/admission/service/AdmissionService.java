@@ -64,7 +64,7 @@ public interface AdmissionService extends IService<Admission> {
      */
     Admission detail(AdmissionParam admissionParam);
 
-    void export(Integer[] id);
+    void export(Long[] id);
 
     void importExcel(MultipartFile file,Long examId);
 }

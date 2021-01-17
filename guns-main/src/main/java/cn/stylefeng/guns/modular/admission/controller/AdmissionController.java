@@ -75,7 +75,7 @@ public class AdmissionController {
     @Permission
     @GetMapping("/admission/export/{id}")
     @BusinessLog(title = "准考证_导出", opType = LogAnnotionOpTypeEnum.EXPORT)
-    public ResponseData export(@PathVariable(value = "id", required = false) Integer[] id) {
+    public ResponseData export(@PathVariable(value = "id", required = false) Long[] id) {
         admissionService.export(id);
         return new SuccessResponseData();
     }

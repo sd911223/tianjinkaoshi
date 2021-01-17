@@ -41,6 +41,7 @@
 		<result column="exam_notice" property="examNotice" />
 		<result column="registered_set" property="registeredSet" />
 		<result column="subject_cost_set" property="subjectCostSet" />
+		<result column="img_id" property="imgId" />
 		<result column="create_time" property="createTime" />
 		<result column="update_time" property="updateTime" />
 		<result column="create_user" property="createUser" />

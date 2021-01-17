@@ -84,13 +84,13 @@ public class JcScoreServiceImpl extends ServiceImpl<JcScoreMapper, JcScore> impl
     }
 
     @Override
-    public void export(Integer[] id) {
+    public void export(Long[] id) {
         if (id == null) {
             JcScoreParam scoreParam = new JcScoreParam();
             List<JcScore> list = this.list(scoreParam);
             PoiUtil.exportExcelWithStream("JcScore.xls", JcScore.class, list);
         } else {
-            List<Integer> list = Arrays.asList(id);
+            List<Long> list = Arrays.asList(id);
             List<JcScore> scoreList = this.listByIds(list);
             PoiUtil.exportExcelWithStream("JcScore.xls", JcScore.class, scoreList);
         }

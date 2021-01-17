@@ -67,5 +67,5 @@ public interface ScScoreService extends IService<ScScore> {
 
     void importExcel(MultipartFile file, ScAdmissionTypeEnum scAdmissionTypeEnum);
 
-    void export(Integer[] id,ScAdmissionTypeEnum scAdmissionTypeEnum);
+    void export(Long[] id,ScAdmissionTypeEnum scAdmissionTypeEnum);
 }

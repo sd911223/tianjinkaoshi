@@ -98,14 +98,14 @@ public class ScScoreServiceImpl extends ServiceImpl<ScScoreMapper, ScScore> impl
     }
 
     @Override
-    public void export(Integer[] id, ScAdmissionTypeEnum scAdmissionTypeEnum) {
+    public void export(Long[] id, ScAdmissionTypeEnum scAdmissionTypeEnum) {
         if (id == null) {
             ScScoreParam scoreParam = new ScScoreParam();
             scoreParam.setExamType(scAdmissionTypeEnum.getCode());
             List<ScScore> list = this.list(scoreParam);
             PoiUtil.exportExcelWithStream("ScScoreAndWritten.xls", ScScore.class, list);
         } else {
-            List<Integer> list = Arrays.asList(id);
+            List<Long> list = Arrays.asList(id);
             List<ScScore> scoreList = this.listByIds(list);
             PoiUtil.exportExcelWithStream("ScScoreAndWritten.xls", ScScore.class, scoreList);
         }
