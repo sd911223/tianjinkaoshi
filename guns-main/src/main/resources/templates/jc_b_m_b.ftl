@@ -10,13 +10,8 @@
     <meta name="description"
           content="天津市卫生计生人才培训和交流服务中心是经天津市编制委员会批准成立，隶属天津市卫生局从事本市卫生行业人力资源开发的社会化服务机构。遵循国家有关法律法规，通过政策导向和市场机制的运作方式，面向全市卫生行业积极开展人力资源开发、人才交流、人事代理、人才测评等方面的工作，为本市卫生行业各单位、各类人员提供社会化服务。"></meta>
     <style type="text/css">
-        /* CSS Document */
         * {
             font-family: SimSun;
-            padding: 0;
-            border: 0;
-            margin: 0;
-            /*color: #000;*/
         }
         body,td,th {
             /*font-family: 宋体;*/
@@ -166,7 +161,7 @@ function p_preview() {
         <tr></tr>
         <tr>
             <td height="60" align="center" valign="middle" style="border:none">
-                <a class="layui-btn" href="http://127.0.0.1:8080/basic_entry_down.asp?pno=130430198209221521">下载报名表
+                <a class="layui-btn" href="http://127.0.0.1:8080/basic_entry_down.asp?pno=130430198209221521">下载报名表</a>
                     <a class="layui-btn" href="http://www.tjwsrc.com/basic_entry_form.Asp?Pno=130430198209221521#"
                        onclick="javascript:doPrint()">打印报名表</a></td>
         </tr>
@@ -174,14 +169,14 @@ function p_preview() {
     </table>
 </div>
 <!--startprint-->
-<table width="796" border="0" align="center" cellpadding="0" cellspacing="0" style="border:none">
+<table width="690" border="0" align="center" cellpadding="0" cellspacing="0" style="border:none">
     <tbody>
     <tr>
         <td height="60" align="center" class="ExamTitle" style="border:none;font-size:26px;">2021年度基层卫生专业高级资格考试报名表</td>
     </tr>
     </tbody>
 </table>
-<table width="796" border="0" align="center" cellpadding="0" cellspacing="0" style="border:none">
+<table width="690" border="0" align="center" cellpadding="0" cellspacing="0" style="border:none">
     <tbody>
     <tr>
         <td align="right" class="CText" style="border:none;text-align:right;">
@@ -190,151 +185,151 @@ function p_preview() {
     </tr>
     </tbody>
 </table>
-<table width="796" border="0" align="center" cellpadding="0" cellspacing="0" class="common">
+<table width="690" border="0" align="center" cellpadding="0" cellspacing="0" class="common">
     <tbody>
     <tr>
         <td width="41" rowspan="3" align="center" class="NNText">
             <strong>基
-                <br>本
-                <br>信
-                <br>息</strong></td>
+                <br/>本
+                <br/>信
+                <br/>息</strong></td>
         <td width="93" height="36" class="CTextM">姓
-            <img src="./files/Blank.gif" width="32" height="1">名
+            <img src="./files/Blank.gif" width="32" height="1"> </img>名
         </td>
         <td width="197" class="CText">马翠平
-            <img src="./files/Blank.gif" width="1" height="1"></td>
+            <img src="./files/Blank.gif" width="1" height="1"></img></td>
         <td width="85" class="CTextM">性
             <span class="CTextM">
-              <img src="./files/Blank.gif" width="32" height="1"></span>别
+              <img src="./files/Blank.gif" width="32" height="1"></img></span>别
         </td>
         <td colspan="2" class="CText">女
-            <img src="./files/Blank.gif" width="1" height="1"></td>
+            <img src="./files/Blank.gif" width="1" height="1"></img></td>
         <td width="143" rowspan="5" align="center" valign="middle">
-            <img src="./files/HY_2020082709262471554.jpg" width="109" height="162" style="padding-top:8px;"></td>
+            <img src="jc/files/HY_2020082709262471554.jpg" width="109" height="162" style="padding-top:8px;"></img></td>
     </tr>
     <tr>
         <td height="36" class="CTextM">民
-            <img src="./files/Blank.gif" width="32" height="1">族
+            <img src="./files/Blank.gif" width="32" height="1"></img>族
         </td>
         <td align="left" class="CText">汉
-            <img src="./files/Blank.gif" width="1" height="1"></td>
+            <img src="./files/Blank.gif" width="1" height="1"></img></td>
         <td align="left" class="CTextM">出生日期</td>
         <td colspan="2" align="left" class="CText">1982/9/22
-            <img src="./files/Blank.gif" width="1" height="1"></td>
+            <img src="./files/Blank.gif" width="1" height="1"></img></td>
     </tr>
     <tr>
         <td height="36" class="CTextM">身份证号</td>
         <td align="left" class="CText">130430198209221521
-            <img src="./files/Blank.gif" width="1" height="1">
-            <img src="./files/Blank.gif" width="1" height="1"></td>
+            <img src="./files/Blank.gif" width="1" height="1"></img>
+            <img src="./files/Blank.gif" width="1" height="1"></img></td>
         <td align="left" class="CTextM">联系电话</td>
         <td colspan="2" align="left" class="CText">13920009269
-            <img src="./files/Blank.gif" width="1" height="1"></td>
+            <img src="./files/Blank.gif" width="1" height="1"></img></td>
     </tr>
     <tr>
         <td rowspan="4" align="center" class="NNText">
             <strong>报
-                <br>名
-                <br>情
-                <br>况</strong></td>
+                <br/>名
+                <br/>情
+                <br/>况</strong></td>
         <td height="36" class="CTextM">报考级别</td>
         <td align="left" class="CText">副高级
-            <img src="./files/Blank.gif" width="1" height="1"></td>
+            <img src="./files/Blank.gif" width="1" height="1"></img></td>
         <td align="left" class="CTextM">报考专业</td>
         <td colspan="2" align="left" class="CText">放射
-            <img src="./files/Blank.gif" width="1" height="1">
-            <img src="./files/Blank.gif" width="1" height="1"></td>
+            <img src="./files/Blank.gif" width="1" height="1"></img>
+            <img src="./files/Blank.gif" width="1" height="1"></img></td>
     </tr>
     <tr>
         <td height="36" class="CTextM">报考科目</td>
         <td colspan="4" align="left" class="CTextM">
-            <input name="checkbox" type="checkbox" id="checkbox">专业理论
-            <img src="./files/Blank.gif" width="45" height="1">
-            <input name="checkbox2" type="checkbox" id="checkbox2" checked="checked">专业实践能力
+            <input name="checkbox" type="checkbox" id="checkbox">专业理论</input>
+            <img src="./files/Blank.gif" width="45" height="1"></img>
+            <input name="checkbox2" type="checkbox" id="checkbox2" checked="checked">专业实践能力</input>
         </td>
     </tr>
     <tr>
         <td height="36" align="left" class="CTextM">现技术资格</td>
         <td align="left" class="CText">中级
-            <img src="./files/Blank.gif" width="1" height="1"></td>
+            <img src="./files/Blank.gif" width="1" height="1"></img></td>
         <td colspan="2" align="left" class="CTextM">现技术取得资格年限</td>
         <td colspan="2" align="left" class="CText">7年
-            <img src="./files/Blank.gif" width="1" height="1"></td>
+            <img src="./files/Blank.gif" width="1" height="1"></img></td>
     </tr>
     <tr>
         <td height="36" align="left" class="CTextM">聘任时间</td>
         <td align="left" class="CText">2015/10/19
-            <img src="./files/Blank.gif" width="1" height="1"></td>
+            <img src="./files/Blank.gif" width="1" height="1"></img></td>
         <td colspan="2" align="left" class="CTextM">聘任年限</td>
         <td colspan="2" align="left" class="CText">5
-            <img src="./files/Blank.gif" width="1" height="1"></td>
+            <img src="./files/Blank.gif" width="1" height="1"></img></td>
     </tr>
     <tr>
         <td rowspan="3" align="center" class="NNText">
             <strong>教
-                <br>育
-                <br>情
-                <br>况</strong></td>
+                <br/>育
+                <br/>情
+                <br/>况</strong></td>
         <td height="36" align="left" class="CTextM">最高学历</td>
         <td align="left" class="CText">
             <span class="NText">本科
-              <img src="./files/Blank.gif" width="1" height="1"></span>
-            <img src="./files/Blank.gif" width="1" height="1"></td>
+              <img src="./files/Blank.gif" width="1" height="1"></img></span>
+            <img src="./files/Blank.gif" width="1" height="1"></img></td>
         <td align="left" class="CTextM">学位</td>
         <td width="143" align="left" class="CText">
-            <img src="./files/Blank.gif" width="1" height="1">学士学位
+            <img src="./files/Blank.gif" width="1" height="1"></img>学士学位
         </td>
         <td width="97" align="left" class="CTextM">学制</td>
         <td width="143" align="left" class="CText">
-            <img src="./files/Blank.gif" width="1" height="1">3年
+            <img src="./files/Blank.gif" width="1" height="1"></img>3年
         </td>
     </tr>
     <tr>
         <td height="36" align="left" class="CTextM">毕业专业</td>
         <td colspan="2" align="left" class="CText">
-            <img src="./files/Blank.gif" width="1" height="1">医学影像学
-            <img src="./files/Blank.gif" width="1" height="1"></td>
+            <img src="./files/Blank.gif" width="1" height="1"></img>医学影像学
+            <img src="./files/Blank.gif" width="1" height="1"></img></td>
         <td align="left" class="CTextM">毕业年月</td>
         <td colspan="2" align="left" class="CText">2007/7/2
-            <img src="./files/Blank.gif" width="1" height="1"></td>
+            <img src="./files/Blank.gif" width="1" height="1"></img></td>
     </tr>
     <tr>
         <td height="36" align="left" class="CTextM">毕业院校</td>
         <td colspan="5" align="left" class="CText">天津医科大学
-            <img src="./files/Blank.gif" width="1" height="1"></td>
+            <img src="./files/Blank.gif" width="1" height="1"></img></td>
     </tr>
     <tr>
         <td rowspan="2" align="center" class="NNText">
             <strong>工
-                <br>作
-                <br>情
-                <br>况</strong></td>
+                <br/>作
+                <br/>情
+                <br/>况</strong></td>
         <td height="36" align="left" class="CTextM">工作单位</td>
         <td colspan="2" align="left" class="CText">天津市东丽区华明社区卫生服务中心
-            <img src="./files/Blank.gif" width="1" height="1"></td>
+            <img src="./files/Blank.gif" width="1" height="1"></img></td>
         <td align="left" class="CTextM">所属主管局</td>
         <td colspan="2" align="left" class="CText" style="line-height:18px;font-size:16px;">东丽区卫生健康委员会</td>
     </tr>
     <tr>
         <td height="36" align="left" class="CTextM">所在科室</td>
         <td colspan="2" align="left" class="CText">放射科
-            <img src="./files/Blank.gif" width="1" height="1"></td>
+            <img src="./files/Blank.gif" width="1" height="1"></img></td>
         <td align="left" class="CTextM">从事本专业年限</td>
         <td colspan="2" align="left" class="CText">
-            <img src="./files/Blank.gif" width="1" height="1">10年
-            <img src="./files/Blank.gif" width="1" height="1"></td>
+            <img src="./files/Blank.gif" width="1" height="1"></img>10年
+            <img src="./files/Blank.gif" width="1" height="1"></img></td>
     </tr>
     </tbody>
 </table>
-<table width="796" border="0" align="center" cellpadding="0" cellspacing="0" class="common">
+<table width="690" border="0" align="center" cellpadding="0" cellspacing="0" class="common">
     <tbody>
     <tr>
         <td width="40" rowspan="4" class="FText">
             <strong>审
-                <br>核
-                <br>意
-                <br>见</strong>
-            <br></td>
+                <br/>核
+                <br/>意
+                <br/>见</strong>
+            <br/></td>
         <td width="263" height="38" class="FText" style="font-size:14px;">
             <strong>单位人事部门或档案存放单位审查意见</strong></td>
         <td width="107" class="FText" style="text-align:right; border-right:none;font-size:14px;">
@@ -348,30 +343,30 @@ function p_preview() {
         <td width="263" height="210" align="center" class="FText"
             style="vertical-align:bottom; font-size:12px;text-align:right;">审核人签名
             <span class="ntext">
-              <img src="./files/Blank.gif" width="75" height="1"></span>年
+              <img src="./files/Blank.gif" width="75" height="1"></img></span>年
             <span class="ntext">
-              <img src="./files/Blank.gif" width="25" height="1"></span>月
+              <img src="./files/Blank.gif" width="25" height="1"></img></span>月
             <span class="ntext">
-              <img src="./files/Blank.gif" width="25" height="1"></span>日
-            <img src="./files/Blank.gif" width="5" height="1"></td>
+              <img src="./files/Blank.gif" width="25" height="1"></img></span>日
+            <img src="./files/Blank.gif" width="5" height="1"></img></td>
         <td colspan="2" class="FText" style="vertical-align:bottom; font-size:12px;text-align:right;">
             <span class="FText" style="vertical-align:bottom; font-size:12px;">负责人签名
               <span class="ntext">
-                <img src="./files/Blank.gif" width="75" height="1"></span>年
+                <img src="./files/Blank.gif" width="75" height="1"></img></span>年
               <span class="ntext">
-                <img src="./files/Blank.gif" width="25" height="1"></span>月
+                <img src="./files/Blank.gif" width="25" height="1"></img></span>月
               <span class="ntext">
-                <img src="./files/Blank.gif" width="25" height="1"></span>日</span>
-            <img src="./files/Blank.gif" width="5" height="1"></td>
+                <img src="./files/Blank.gif" width="25" height="1"></img></span>日</span>
+            <img src="./files/Blank.gif" width="5" height="1"></img></td>
         <td class="FText" style="vertical-align:bottom; font-size:12px;text-align:right;">
             <span class="FText" style="vertical-align:bottom; font-size:12px;">负责人签名
               <span class="ntext">
-                <img src="./files/Blank.gif" width="75" height="1"></span>年
+                <img src="./files/Blank.gif" width="75" height="1"></img></span>年
               <span class="ntext">
-                <img src="./files/Blank.gif" width="25" height="1"></span>月
+                <img src="./files/Blank.gif" width="25" height="1"></img></span>月
               <span class="ntext">
-                <img src="./files/Blank.gif" width="25" height="1"></span>日</span>
-            <img src="./files/Blank.gif" width="5" height="1"></td>
+                <img src="./files/Blank.gif" width="25" height="1"></img></span>日</span>
+            <img src="./files/Blank.gif" width="5" height="1"></img></td>
     </tr>
     <tr>
         <td height="38" colspan="2" align="center" class="FText" style="font-size:14px;">
@@ -384,21 +379,21 @@ function p_preview() {
             style="vertical-align:bottom; font-size:12px;text-align:right;">
             <span class="FText" style="vertical-align:bottom; font-size:12px;">审核人签名
               <span class="ntext">
-                <img src="./files/Blank.gif" width="125" height="1"></span>年
+                <img src="./files/Blank.gif" width="125" height="1"></img></span>年
               <span class="ntext">
-                <img src="./files/Blank.gif" width="25" height="1"></span>月
+                <img src="./files/Blank.gif" width="25" height="1"></img></span>月
               <span class="ntext">
-                <img src="./files/Blank.gif" width="25" height="1"></span>日</span>
-            <img src="./files/Blank.gif" width="5" height="1"></td>
+                <img src="./files/Blank.gif" width="25" height="1"></img></span>日</span>
+            <img src="./files/Blank.gif" width="5" height="1"></img></td>
         <td colspan="2" class="FText" style="vertical-align:bottom; font-size:12px;text-align:right;">
             <span class="FText" style="vertical-align:bottom; font-size:12px;">负责人签名
               <span class="ntext">
-                <img src="./files/Blank.gif" width="125" height="1"></span>年
+                <img src="./files/Blank.gif" width="125" height="1"></img></span>年
               <span class="ntext">
-                <img src="./files/Blank.gif" width="25" height="1"></span>月
+                <img src="./files/Blank.gif" width="25" height="1"></img></span>月
               <span class="ntext">
-                <img src="./files/Blank.gif" width="25" height="1"></span>日</span>
-            <img src="./files/Blank.gif" width="5" height="1"></td>
+                <img src="./files/Blank.gif" width="25" height="1"></img></span>日</span>
+            <img src="./files/Blank.gif" width="5" height="1"></img></td>
     </tr>
     <tr>
         <td height="40" colspan="5" align="left" class="NText"
@@ -407,11 +402,11 @@ function p_preview() {
     </tr>
     <tr>
         <td height="30" colspan="5" align="right" class="CText" style="border-top:none;text-align:right;">申报人员签名：
-            <img src="./files/Blank.gif" width="120" height="1">日期：
-            <img src="./files/Blank.gif" width="45" height="1">年
-            <img src="./files/Blank.gif" width="25" height="1">月
-            <img src="./files/Blank.gif" width="25" height="1">日
-            <img src="./files/Blank.gif" width="10" height="1"></td>
+            <img src="./files/Blank.gif" width="120" height="1"></img>日期：
+            <img src="./files/Blank.gif" width="45" height="1"></img>年
+            <img src="./files/Blank.gif" width="25" height="1"></img>月
+            <img src="./files/Blank.gif" width="25" height="1"></img>日
+            <img src="./files/Blank.gif" width="10" height="1"></img></td>
     </tr>
     </tbody>
 </table>

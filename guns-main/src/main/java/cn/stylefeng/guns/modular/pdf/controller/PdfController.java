@@ -58,12 +58,9 @@ public class PdfController {
      */
     @ApiOperation("pdf下载")
     @RequestMapping(value = "/pdf/download", method = RequestMethod.GET)
-    public void download(HttpServletRequest request, HttpServletResponse response,
-                         @RequestParam("id") Long id,
-                         PdfTypeEnum pdfTypeEnum,
-                         CertificateTypeEnum certificateTypeEnum) throws IOException {
-        getPdfInfo(id, pdfTypeEnum, certificateTypeEnum, response);
-//        getPdfInfo(1349391322154315777L, PdfTypeEnum.GAO_JI, CertificateTypeEnum.TRANSCRIPT, response);
+    public void download(HttpServletRequest request, HttpServletResponse response) throws IOException {
+//        getPdfInfo(id, pdfTypeEnum, certificateTypeEnum, response);
+        getPdfInfo(1349391322154315777L, PdfTypeEnum.GAO_JI, CertificateTypeEnum.TRANSCRIPT, response);
     }
 
     /**
@@ -94,7 +91,7 @@ public class PdfController {
                 }
                 //成绩单
                 if (certificateTypeEnum.getCode().equals(CertificateTypeEnum.TRANSCRIPT.getCode())) {
-                    baos = PdfUtilTest.createPDF(variables, "c_j_d.ftl");
+                    baos = PdfUtilTest.createPDF(variables, "zy_bmb.ftl");
                     pdfName = examSign.getName() + "成绩单";
                 }
                 //报名表
