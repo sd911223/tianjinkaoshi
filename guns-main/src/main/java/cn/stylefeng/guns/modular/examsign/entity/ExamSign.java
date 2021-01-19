@@ -25,7 +25,11 @@ public class ExamSign extends BaseEntity {
      */
     @TableId("id")
     private Long id;
-
+    /**
+     * 用戶ID
+     */
+    @TableField("user_id")
+    private Long userId;
     /**
      * 姓名
      */

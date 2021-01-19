@@ -17,7 +17,10 @@ public class ExamSignResult implements Serializable {
      * 主键
      */
     private Long id;
-
+    /**
+     * 报考人员ID
+     */
+    private Long userId;
     /**
      * 姓名
      */

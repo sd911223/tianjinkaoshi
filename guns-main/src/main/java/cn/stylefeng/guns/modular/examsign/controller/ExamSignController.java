@@ -77,6 +77,7 @@ public class ExamSignController {
     @PostMapping("/examSign/add")
     @BusinessLog(title = "报名人员管理_增加", opType = LogAnnotionOpTypeEnum.ADD)
     public ResponseData add(@RequestBody @Validated(ExamSignParam.add.class) ExamSignParam examSignParam) {
+
         examSignService.add(examSignParam);
         return new SuccessResponseData();
     }
