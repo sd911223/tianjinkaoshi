@@ -70,4 +70,10 @@ public interface ExamService extends IService<Exam> {
      */
     void revoke(Long[] id);
 
+    /**
+     * 数据清除
+     *
+     * @param id
+     */
+    void eliminate(Long[] id);
 }

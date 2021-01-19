@@ -6,18 +6,33 @@ import cn.stylefeng.guns.core.enums.CommonStatusEnum;
 import cn.stylefeng.guns.core.exception.ServiceException;
 import cn.stylefeng.guns.core.factory.PageFactory;
 import cn.stylefeng.guns.core.pojo.page.PageResult;
+import cn.stylefeng.guns.modular.admission.entity.Admission;
+import cn.stylefeng.guns.modular.admission.mapper.AdmissionMapper;
 import cn.stylefeng.guns.modular.exam.entity.Exam;
 import cn.stylefeng.guns.modular.exam.enums.ExamExceptionEnum;
 import cn.stylefeng.guns.modular.exam.enums.ExamStatusEnum;
 import cn.stylefeng.guns.modular.exam.mapper.ExamMapper;
 import cn.stylefeng.guns.modular.exam.model.param.ExamParam;
 import cn.stylefeng.guns.modular.exam.service.ExamService;
+import cn.stylefeng.guns.modular.jcscore.entity.JcScore;
+import cn.stylefeng.guns.modular.jcscore.mapper.JcScoreMapper;
+import cn.stylefeng.guns.modular.jnadmission.entity.JnAdmission;
+import cn.stylefeng.guns.modular.jnadmission.mapper.JnAdmissionMapper;
+import cn.stylefeng.guns.modular.jnscore.entity.JnScore;
+import cn.stylefeng.guns.modular.jnscore.mapper.JnScoreMapper;
+import cn.stylefeng.guns.modular.scadmission.entity.ScAdmission;
+import cn.stylefeng.guns.modular.scadmission.mapper.ScAdmissionMapper;
+import cn.stylefeng.guns.modular.score.entity.Score;
+import cn.stylefeng.guns.modular.score.mapper.ScoreMapper;
+import cn.stylefeng.guns.modular.scscore.entity.ScScore;
+import cn.stylefeng.guns.modular.scscore.mapper.ScScoreMapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -30,6 +45,20 @@ import java.util.List;
 public class ExamServiceImpl extends ServiceImpl<ExamMapper, Exam> implements ExamService {
     @Resource
     ExamMapper examMapper;
+    @Resource
+    ScoreMapper scoreMapper;
+    @Resource
+    JcScoreMapper jcScoreMapper;
+    @Resource
+    ScScoreMapper scScoreMapper;
+    @Resource
+    JnScoreMapper jnScoreMapper;
+    @Resource
+    AdmissionMapper admissionMapper;
+    @Resource
+    JnAdmissionMapper jnAdmissionMapper;
+    @Resource
+    ScAdmissionMapper scAdmissionMapper;
 
     @Override
     public PageResult<Exam> page(ExamParam examParam) {
@@ -86,6 +115,50 @@ public class ExamServiceImpl extends ServiceImpl<ExamMapper, Exam> implements Ex
     @Override
     public void revoke(Long[] id) {
         examMapper.updateExamStatusByIds(id);
+    }
+
+    @Override
+    public void eliminate(Long[] id) {
+        List<Long> list = Arrays.asList(id);
+        if (!list.isEmpty()) {
+            list.forEach(e -> {
+                Exam exam = this.getById(e);
+                //高级
+                if (exam.getExamType().equals(String.valueOf(1348282279595782145L))) {
+                    LambdaQueryWrapper<Score> queryWrapper = new LambdaQueryWrapper<>();
+                    scoreMapper.delete(queryWrapper);
+                    LambdaQueryWrapper<Admission> admissionQueryWrapper = new LambdaQueryWrapper<>();
+                    admissionQueryWrapper.eq(Admission::getBelongingExam, e);
+                    admissionMapper.delete(admissionQueryWrapper);
+                }
+                //师承
+                if (exam.getExamType().equals(String.valueOf(1348282758375583745L))) {
+                    LambdaQueryWrapper<ScScore> queryWrapper = new LambdaQueryWrapper<>();
+                    scScoreMapper.delete(queryWrapper);
+                    LambdaQueryWrapper<ScAdmission> scAdmissionLambdaQueryWrapper = new LambdaQueryWrapper<>();
+                    scAdmissionMapper.delete(scAdmissionLambdaQueryWrapper);
+                }
+                //专业技术
+                if (exam.getExamType().equals(String.valueOf(1348282813102862338L))) {
+                    LambdaQueryWrapper<JnScore> queryWrapper = new LambdaQueryWrapper<>();
+                    jnScoreMapper.delete(queryWrapper);
+                    LambdaQueryWrapper<JnAdmission> jnAdmissionLambdaQueryWrapper = new LambdaQueryWrapper<>();
+                    jnAdmissionMapper.delete(jnAdmissionLambdaQueryWrapper);
+                }
+                //基层
+                if (exam.getExamType().equals(String.valueOf(1348282880262057985L))) {
+                    LambdaQueryWrapper<JcScore> queryWrapper = new LambdaQueryWrapper<>();
+                    jcScoreMapper.delete(queryWrapper);
+                    LambdaQueryWrapper<Admission> admissionQueryWrapper = new LambdaQueryWrapper<>();
+                    admissionQueryWrapper.eq(Admission::getBelongingExam, e);
+                    admissionMapper.delete(admissionQueryWrapper);
+                }
+                //中医
+                if (exam.getExamType().equals(String.valueOf(1348282952060153857L))) {
+
+                }
+            });
+        }
     }
 
 

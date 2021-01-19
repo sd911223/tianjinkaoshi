@@ -13,7 +13,6 @@ import cn.stylefeng.guns.modular.exam.service.ExamService;
 import cn.stylefeng.guns.sys.modular.dict.entity.SysDictData;
 import cn.stylefeng.guns.sys.modular.dict.param.SysDictDataParam;
 import cn.stylefeng.guns.sys.modular.dict.service.SysDictDataService;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.BeanUtils;
@@ -53,7 +52,7 @@ public class ExamController {
         PageResult<Exam> page = examService.page(examParam);
         List<Exam> list = page.getRows();
         List<ExamExpand> listExam = getListExam(list);
-        PageResult<ExamExpand> examExpandPage= new PageResult<ExamExpand>();
+        PageResult<ExamExpand> examExpandPage = new PageResult<ExamExpand>();
         examExpandPage.setRows(listExam);
         examExpandPage.setPageNo(page.getPageNo());
         examExpandPage.setPageSize(page.getPageSize());
@@ -87,7 +86,7 @@ public class ExamController {
     public ResponseData detail(@Validated(ExamParam.detail.class) ExamParam examParam) {
         Exam detail = examService.detail(examParam);
         ExamExpand examExpand = new ExamExpand();
-        BeanUtils.copyProperties(detail,examExpand);
+        BeanUtils.copyProperties(detail, examExpand);
         SysDictDataParam sysDictDataParam = new SysDictDataParam();
         sysDictDataParam.setId(Long.valueOf(detail.getExamType()));
         SysDictData dictData = sysDictDataService.detail(sysDictDataParam);
@@ -137,6 +136,21 @@ public class ExamController {
         examService.revoke(id);
         return new SuccessResponseData();
     }
+
+    /**
+     * 数据清除
+     *
+     * @author shiTou
+     * @date 2021/01/10 19:37
+     */
+    @ApiOperation("数据清除")
+    @GetMapping("/exam/eliminate/{id}")
+    @BusinessLog(title = "tj_exam_数据清除", opType = LogAnnotionOpTypeEnum.DELETE)
+    public ResponseData eliminate(@PathVariable("id") Long[] id) {
+        examService.eliminate(id);
+        return new SuccessResponseData();
+    }
+
 
     /**
      * 编辑tj_exam
