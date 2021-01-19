@@ -33,6 +33,7 @@
 		<result column="del_flag" property="delFlag"/>
 		<result column="subject_cost" property="subjectCost"/>
 		<result column="sign_level" property="signLevel"/>
+		<result column="new_sorts" property="newSorts"/>
 	</resultMap>
 
 </mapper>

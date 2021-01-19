@@ -36,6 +36,7 @@
 		<result column="update_time" property="updateTime" />
 		<result column="create_user" property="createUser" />
 		<result column="update_user" property="updateUser" />
+		<result column="new_sorts" property="newSorts"/>
 	</resultMap>
 
 </mapper>

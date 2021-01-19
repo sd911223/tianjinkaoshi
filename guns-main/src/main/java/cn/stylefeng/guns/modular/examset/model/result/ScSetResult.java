@@ -138,5 +138,6 @@ public class ScSetResult implements Serializable {
      * 是否审核
      */
     private String isReview;
+    private String newSorts;
 
 }

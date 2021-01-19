@@ -150,4 +150,7 @@ public class ExamSet extends BaseEntity {
      */
     @TableField("sign_level")
     private String signLevel;
+
+    @TableField("new_sorts")
+    private String newSorts;
 }

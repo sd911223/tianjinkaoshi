@@ -169,4 +169,6 @@ public class ScSet extends BaseEntity {
     @TableField("is_review")
     private String isReview;
 
+    @TableField("new_sorts")
+    private String newSorts;
 }

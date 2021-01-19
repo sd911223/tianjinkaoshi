@@ -194,4 +194,5 @@ public class ScSetParam extends BaseParam {
     @NotNull(message = "是否审核不能为空", groups = {add.class, edit.class})
     private String isReview;
 
+    private String newSorts;
 }

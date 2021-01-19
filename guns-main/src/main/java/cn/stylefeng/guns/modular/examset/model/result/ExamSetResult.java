@@ -130,4 +130,5 @@ public class ExamSetResult implements Serializable {
      */
     private Date updateUser;
 
+    private String newSorts;
 }

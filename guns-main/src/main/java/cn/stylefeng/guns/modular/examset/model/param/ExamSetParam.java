@@ -161,6 +161,7 @@ public class ExamSetParam {
 //    @NotNull(message = "是否审核不能为空",groups = {BaseParam.add.class, BaseParam.edit.class})
     private String isReview;
 
+    private String newSorts;
     /**
      * 创建时间
      */
