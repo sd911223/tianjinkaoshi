@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.ambuf.product.examination.examsign.mapper.ScSignMapper">
+
+    <!-- 开启二级缓存 -->
+    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.ambuf.product.examination.examsign.entity.ScSign">
+		<id column="id" property="id" />
+		<result column="exam_id" property="examId" />
+		<result column="name" property="name" />
+		<result column="sex" property="sex" />
+		<result column="born_time" property="bornTime" />
+		<result column="born_address" property="bornAddress" />
+		<result column="hometown" property="hometown" />
+		<result column="ethnic" property="ethnic" />
+		<result column="avatar_code" property="avatarCode" />
+		<result column="phone" property="phone" />
+		<result column="mailbox" property="mailbox" />
+		<result column="highest_education" property="highestEducation" />
+		<result column="obtain_educational" property="obtainEducational" />
+		<result column="join_work_time" property="joinWorkTime" />
+		<result column="engage_profession" property="engageProfession" />
+		<result column="unit_name" property="unitName" />
+		<result column="postcode" property="postcode" />
+		<result column="communicate_address" property="communicateAddress" />
+		<result column="file_store" property="fileStore" />
+		<result column="store_postcode" property="storePostcode" />
+		<result column="store_communicate_address" property="storeCommunicateAddress" />
+		<result column="guide_teacher_name" property="guideTeacherName" />
+		<result column="guide_teacher_appellation" property="guideTeacherAppellation" />
+		<result column="guide_teacher_phone" property="guideTeacherPhone" />
+		<result column="guide_teacher_years" property="guideTeacherYears" />
+		<result column="guide_teacher_unit" property="guideTeacherUnit" />
+		<result column="guide_teacher_address" property="guideTeacherAddress" />
+		<result column="guide_teacher_speciality" property="guideTeacherSpeciality" />
+		<result column="personal_resume" property="personalResume" />
+		<result column="member_status" property="memberStatus" />
+		<result column="data_submit_status" property="dataSubmitStatus" />
+		<result column="data_check_status" property="dataCheckStatus" />
+		<result column="reject_reason" property="rejectReason" />
+		<result column="pay_status" property="payStatus" />
+		<result column="order_number" property="orderNumber" />
+		<result column="bank_order_number" property="bankOrderNumber" />
+		<result column="sign_status" property="signStatus" />
+		<result column="release_time" property="releaseTime" />
+		<result column="create_time" property="createTime" />
+		<result column="update_time" property="updateTime" />
+		<result column="create_user" property="createUser" />
+		<result column="update_user" property="updateUser" />
+	</resultMap>
+
+</mapper>

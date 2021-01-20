@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.ambuf.product.examination.examset.mapper.ExamSetMapper">
+
+    <!-- 开启二级缓存 -->
+<!--    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>-->
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.ambuf.product.examination.examset.entity.ExamSet">
+		<id column="id" property="id" />
+		<result column="exam_id" property="examId" />
+		<result column="sign_start_time" property="signStartTime" />
+		<result column="sign_end_time" property="signEndTime" />
+		<result column="pay_start_time" property="payStartTime" />
+		<result column="pay_end_time" property="payEndTime" />
+		<result column="score_start_time" property="scoreStartTime" />
+		<result column="score_end_time" property="scoreEndTime" />
+		<result column="admission_start_time" property="admissionStartTime" />
+		<result column="admission_end_time" property="admissionEndTime" />
+		<result column="is_pay" property="isPay" />
+		<result column="sign_cost" property="signCost" />
+		<result column="pay_explanation" property="payExplanation" />
+		<result column="sign_profession" property="signProfession" />
+		<result column="sign_profession_remark" property="signProfessionRemark" />
+		<result column="sign_qualifications" property="signQualifications" />
+		<result column="sign_info_set" property="signInfoSet" />
+		<result column="examination_info_set" property="examinationInfoSet" />
+		<result column="is_review" property="isReview" />
+		<result column="create_time" property="createTime" />
+		<result column="update_time" property="updateTime" />
+		<result column="create_user" property="createUser" />
+		<result column="update_user" property="updateUser" />
+		<result column="del_flag" property="delFlag"/>
+		<result column="subject_cost" property="subjectCost"/>
+		<result column="sign_level" property="signLevel"/>
+		<result column="new_sorts" property="newSorts"/>
+	</resultMap>
+
+</mapper>

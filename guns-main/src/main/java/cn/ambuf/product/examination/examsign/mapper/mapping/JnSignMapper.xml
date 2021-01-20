@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.ambuf.product.examination.examsign.mapper.JnSignMapper">
+
+    <!-- 开启二级缓存 -->
+    <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="cn.ambuf.product.examination.examsign.entity.JnSign">
+		<id column="id" property="id" />
+		<result column="exam_id" property="examId" />
+		<result column="select_specialty" property="selectSpecialty" />
+		<result column="select_apply_level" property="selectApplyLevel" />
+		<result column="id_card" property="idCard" />
+		<result column="name" property="name" />
+		<result column="avatar_code" property="avatarCode" />
+		<result column="phone" property="phone" />
+		<result column="ethnic" property="ethnic" />
+		<result column="highest_education" property="highestEducation" />
+		<result column="graduate_time" property="graduateTime" />
+		<result column="graduate_school" property="graduateSchool" />
+		<result column="graduate_specialty" property="graduateSpecialty" />
+		<result column="existing_qualifications" property="existingQualifications" />
+		<result column="qualifications_years" property="qualificationsYears" />
+		<result column="work_unit" property="workUnit" />
+		<result column="work_years" property="workYears" />
+		<result column="head_office" property="headOffice" />
+		<result column="is_outline" property="isOutline" />
+		<result column="member_status" property="memberStatus" />
+		<result column="data_submit_status" property="dataSubmitStatus" />
+		<result column="data_check_status" property="dataCheckStatus" />
+		<result column="reject_reason" property="rejectReason" />
+		<result column="pay_status" property="payStatus" />
+		<result column="order_number" property="orderNumber" />
+		<result column="bank_order_number" property="bankOrderNumber" />
+		<result column="sign_status" property="signStatus" />
+		<result column="create_time" property="createTime" />
+		<result column="update_time" property="updateTime" />
+		<result column="create_user" property="createUser" />
+		<result column="update_user" property="updateUser" />
+	</resultMap>
+
+</mapper>
